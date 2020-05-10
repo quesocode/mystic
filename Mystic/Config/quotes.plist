@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Quotes</key>
+	<array>
+		<dict>
+			<key>quotes</key>
+			<array>
+				<dict>
+					<key>text</key>
+					<string>We make a living by what we get, but we make a life by what we give.</string>
+					<key>author</key>
+					<string>Winston Churchill</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>We live with the scars we choose</string>
+					<key>author</key>
+					<string></string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>The greatness of a nation can be judged by the way the animals are treated</string>
+					<key>author</key>
+					<string>Gandhi</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>Be the change you want to see in the world</string>
+					<key>author</key>
+					<string>Gandhi</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>Where there is love there is life</string>
+					<key>author</key>
+					<string>Gandhi</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>An eye for an eye makes the whole world blind</string>
+					<key>author</key>
+					<string>Gandhi</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>God has no religion</string>
+					<key>author</key>
+					<string>Gandhi</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>Be truthful, gentle &amp; fearless</string>
+					<key>author</key>
+					<string>Gandhi</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>Not all who wander are lost</string>
+					<key>author</key>
+					<string>J.R.R. Tolkien</string>
+				</dict>
+			</array>
+			<key>title</key>
+			<string>Classics</string>
+		</dict>
+		<dict>
+			<key>quotes</key>
+			<array>
+				<dict>
+					<key>text</key>
+					<string>I Love You</string>
+					<key>author</key>
+					<string></string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>There&apos;s nobody like you</string>
+					<key>author</key>
+					<string></string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>I miss you</string>
+					<key>author</key>
+					<string></string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>when it&apos;s right, it&apos;s right</string>
+					<key>author</key>
+					<string></string>
+				</dict>
+			</array>
+			<key>title</key>
+			<string>Love</string>
+		</dict>
+		<dict>
+			<key>quotes</key>
+			<array>
+				<dict>
+					<key>text</key>
+					<string>Happy Birthday</string>
+					<key>author</key>
+					<string></string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>Congratulations</string>
+					<key>author</key>
+					<string></string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>Get Well Soon</string>
+					<key>author</key>
+					<string></string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>Happy Birthday</string>
+					<key>author</key>
+					<string></string>
+				</dict>
+			</array>
+			<key>title</key>
+			<string>Event</string>
+		</dict>
+		<dict>
+			<key>quotes</key>
+			<array>
+				<dict>
+					<key>text</key>
+					<string>I love you to the mystic moon &amp; back</string>
+					<key>author</key>
+					<string></string>
+				</dict>
+			</array>
+			<key>title</key>
+			<string>Mystic</string>
+		</dict>
+	</array>
+</dict>
+</plist>

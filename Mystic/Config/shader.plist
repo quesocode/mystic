@@ -1,0 +1,1578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>blends</key>
+	<dict>
+		<key>add</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendAdd(mediump vec4 bg, mediump vec4 fg)
+{
+	mediump float radd;
+	mediump float gadd;
+	mediump float badd;
+	mediump float aadd;
+	if (fg.r * bg.a + bg.r * fg.a &gt;= fg.a * bg.a) {
+	    radd = fg.a * bg.a + fg.r * (1.0 - bg.a) + bg.r * (1.0 - fg.a);
+    } else {
+        radd = fg.r + bg.r;
+    }
+
+    if (fg.g * bg.a + bg.g * fg.a &gt;= fg.a * bg.a) {
+        gadd = fg.a * bg.a + fg.g * (1.0 - bg.a) + bg.g * (1.0 - fg.a);
+    } else {
+        gadd = fg.g + bg.g;
+    }
+
+    if (fg.b * bg.a + bg.b * fg.a &gt;= fg.a * bg.a) {
+        badd = fg.a * bg.a + fg.b * (1.0 - bg.a) + bg.b * (1.0 - fg.a);
+    } else {
+        badd = fg.b + bg.b;
+    }
+
+    aadd = fg.a + bg.a - fg.a * bg.a;
+
+    return vec4(radd, gadd, badd, aadd);
+	
+}</string>
+			<key>prefix</key>
+			<string>inputColor = blendAdd(outputColor, $inputColor);</string>
+		</dict>
+		<key>alpha</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendAlpha(mediump vec4 bg, mediump vec4 fg)
+{
+	if (fg.a == 0.0) {
+        return bg;
+	}        
+	return vec4(mix(bg.rgb, fg.rgb / fg.a, fg.a), bg.a);
+	
+
+}</string>
+			<key>prefix</key>
+			<string>inputColor = blendAlpha(outputColor, $inputColor);</string>
+		</dict>
+		<key>alphamask</key>
+		<dict>
+			<key>_line</key>
+			<string>outputColor = blendAlphamask(outputColor, inputColor);</string>
+			<key>blend</key>
+			<string>mediump vec4 blendAlphamask(mediump vec4 o, mediump vec4 i)
+{
+
+	if (i.a == 0.0) {
+    } else {
+    	o = vec4(mix(o.rgb, i.rgb / i.a, i.a), o.a);                      
+    }
+	return o;
+
+}</string>
+		</dict>
+		<key>alphamix</key>
+		<dict>
+			<key>__line</key>
+			<string>outputColor = mix(outputColor, inputColor, inputColor.a);</string>
+			<key>_line</key>
+			<string>outputColor = blendAlphamix(outputColor, inputColor);</string>
+			<key>blend</key>
+			<string>mediump vec4 blendAlphamix(mediump vec4 bg, mediump vec4 fg)
+{
+	if (fg.a == 0.0) {
+		} else {
+		bg = vec4(mix(bg.rgb, fg.rgb, fg.a), bg.a);
+	}
+	return bg;
+}</string>
+			<key>blend 2</key>
+			<string>mediump vec4 blendAlphamix(mediump vec4 bg, mediump vec4 fg)
+{
+	if (fg.a == 0.0) {
+
+    } else {
+        bg = vec4(mix(bg.rgb, fg.rgb/fg.a, fg.a), bg.a);
+    }
+    return bg;
+}</string>
+			<key>line</key>
+			<string>outputColor = blendAlphamix(outputColor, inputColor);</string>
+		</dict>
+		<key>alphamix-old</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendAlphamix(mediump vec4 bg, mediump vec4 fg, lowp float i)
+{
+	if (fg.a == 0.0) {
+
+    } else {
+        bg = vec4(mix(bg.rgb, fg.rgb/ fg.a,
+                                i * fg.a), bg.a);
+    }
+    return mix(bg, fg, fg.a);
+}</string>
+			<key>line</key>
+			<string>outputColor = blendAlphamix(outputColor, inputColor, intensityUniform%%inputIndex%%);</string>
+			<key>prefix</key>
+			<string>inputColor = blendAlphamix(outputColor, $inputColor, intensityUniform%%inputIndex%%);</string>
+		</dict>
+		<key>alphaover</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendAlphaOver(mediump vec4 bg, mediump vec4 fg)
+{
+    return mix(bg, fg, bg.a);
+}</string>
+			<key>line</key>
+			<string>outputColor = blendAlphaOver(outputColor, inputColor);</string>
+			<key>prefix</key>
+			<string>inputColor = blendAlphaOver(outputColor, $inputColor);</string>
+		</dict>
+		<key>chromakey</key>
+		<string></string>
+		<key>color</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendColor (mediump vec4 bg, mediump vec4 fg)
+{
+	return vec4(bg.rgb * (1.0 - fg.a) + setlum(fg.rgb, lum(bg.rgb)) * fg.a, bg.a);
+}</string>
+			<key>functions</key>
+			<string>lum,clipcolor,setlum</string>
+			<key>line</key>
+			<string>outputColor = vec4(blendColor(outputColor, inputColor).rgb, inputColor.a);</string>
+			<key>prefix</key>
+			<string>inputColor = vec4(blendColor(outputColor, $inputColor).rgb, inputColor.a);</string>
+		</dict>
+		<key>colorburn</key>
+		<dict>
+			<key>_line</key>
+			<string>outputColor = mix(previousOutputColor, blendColorburn(outputColor, inputColor), inputColor.a);</string>
+			<key>blend</key>
+			<string>mediump vec4 blendColorburn(mediump vec4 bg, mediump vec4 fg)
+{
+	return whiteColor - (whiteColor - fg) / bg;
+}</string>
+			<key>constants</key>
+			<string>white</string>
+			<key>prefix</key>
+			<string>inputColor = blendColorburn(outputColor, $inputColor);</string>
+		</dict>
+		<key>colordodge</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendColordodge (mediump vec4 bg, mediump vec4 fg)
+{
+	vec3 bgfgAlphaProduct = vec3(fg.a * bg.a);
+    vec3 rightHandProduct = fg.rgb * (1.0 - bg.a) + bg.rgb * (1.0 - fg.a);
+
+    vec3 firstBlendColor = bgfgAlphaProduct + rightHandProduct;
+    vec3 fgRGB = clamp((fg.rgb / clamp(fg.a, 0.01, 1.0)) * step(0.0, fg.a), 0.0, 0.99);
+
+    vec3 secondBlendColor = (bg.rgb * fg.a) / (1.0 - fgRGB) + rightHandProduct;
+
+    vec3 colorChoice = step((fg.rgb * bg.a + bg.rgb * fg.a), bgfgAlphaProduct);
+
+    return vec4(mix(firstBlendColor, secondBlendColor, colorChoice), 1.0);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = blendColorDodge(outputColor, $inputColor);</string>
+		</dict>
+		<key>cutout</key>
+		<string></string>
+		<key>darken</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendDarken(mediump vec4 bg, mediump vec4 fg)
+{
+	return vec4(min(fg.rgb * bg.a, bg.rgb * fg.a) + fg.rgb * (1.0 - bg.a) + bg.rgb * (1.0 - fg.a), 1.0);
+}</string>
+			<key>line</key>
+			<string>outputColor = blendDarken(outputColor, inputColor);</string>
+			<key>prefix</key>
+			<string>inputColor = blendDarken(inputColor, $inputColor);</string>
+		</dict>
+		<key>difference</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendDifference (mediump vec4 bg, mediump vec4 fg)
+{
+	return vec4(abs(fg.rgb - bg.rgb), bg.a);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = blendDifference(outputColor, $inputColor);</string>
+		</dict>
+		<key>divide</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendDivide(mediump vec4 bg, mediump vec4 fg)
+{
+	mediump float radiv;
+	mediump float gadiv;
+	mediump float badiv;
+	mediump float adiv;
+	if (fg.a == 0.0 || ((bg.r / fg.r) &gt; (bg.a / fg.a)))
+    radiv = fg.a * bg.a + fg.r * (1.0 - bg.a) + bg.r * (1.0 - fg.a);
+    else
+    radiv = (bg.r * fg.a * fg.a) / fg.r + fg.r * (1.0 - bg.a) + bg.r * (1.0 - fg.a);
+
+
+    if (fg.a == 0.0 || ((bg.g / fg.g) &gt; (bg.a / fg.a)))
+    gadiv = fg.a * bg.a + fg.g * (1.0 - bg.a) + bg.g * (1.0 - fg.a);
+    else
+    gadiv = (bg.g * fg.a * fg.a) / fg.g + fg.g * (1.0 - bg.a) + bg.g * (1.0 - fg.a);
+
+
+    if (fg.a == 0.0 || ((bg.b / fg.b) &gt; (bg.a / fg.a)))
+    badiv = fg.a * bg.a + fg.b * (1.0 - bg.a) + bg.b * (1.0 - fg.a);
+    else
+    badiv = (bg.b * fg.a * fg.a) / fg.b + fg.b * (1.0 - bg.a) + bg.b * (1.0 - fg.a);
+
+    adiv = fg.a + bg.a - fg.a * bg.a;
+
+    return vec4(radiv, gadiv, badiv, adiv);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = blendDivide(outputColor, $inputColor);</string>
+		</dict>
+		<key>exclusion</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendExclusion (mediump vec4 bg, mediump vec4 fg)
+{
+	return vec4((fg.rgb * bg.a + bg.rgb * fg.a - 2.0 * fg.rgb * bg.rgb) + fg.rgb * (1.0 - bg.a) + bg.rgb * (1.0 - fg.a), bg.a);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = blendExclusion(outputColor, $inputColor);</string>
+		</dict>
+		<key>hardlight</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendHardlight (mediump vec4 bg, mediump vec4 fg)
+{
+	highp float ra;
+    if (2.0 * fg.r &lt; fg.a) {
+        ra = 2.0 * fg.r * bg.r + fg.r * (1.0 - bg.a) + bg.r * (1.0 - fg.a);
+    } else {
+        ra = fg.a * bg.a - 2.0 * (bg.a - bg.r) * (fg.a - fg.r) + fg.r * (1.0 - bg.a) + bg.r * (1.0 - fg.a);
+    }
+
+    highp float ga;
+    if (2.0 * fg.g &lt; fg.a) {
+        ga = 2.0 * fg.g * bg.g + fg.g * (1.0 - bg.a) + bg.g * (1.0 - fg.a);
+    } else {
+        ga = fg.a * bg.a - 2.0 * (bg.a - bg.g) * (fg.a - fg.g) + fg.g * (1.0 - bg.a) + bg.g * (1.0 - fg.a);
+    }
+
+    highp float ba;
+    if (2.0 * fg.b &lt; fg.a) {
+        ba = 2.0 * fg.b * bg.b + fg.b * (1.0 - bg.a) + bg.b * (1.0 - fg.a);
+    } else {
+        ba = fg.a * bg.a - 2.0 * (bg.a - bg.b) * (fg.a - fg.b) + fg.b * (1.0 - bg.a) + bg.b * (1.0 - fg.a);
+    }
+
+    return vec4(ra, ga, ba, 1.0); 
+}</string>
+			<key>prefix</key>
+			<string>inputColor = blendHardlight(outputColor, $inputColor);</string>
+		</dict>
+		<key>hue</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendHue (mediump vec4 bg, mediump vec4 fg)
+{
+	return vec4(bg.rgb * (1.0 - fg.a) + setlum(setsat(fg.rgb, sat(bg.rgb)), lum(bg.rgb)) * fg.a, bg.a);
+}</string>
+			<key>functions</key>
+			<string>lum,clipcolor,setlum,sat,setsat</string>
+			<key>prefix</key>
+			<string>inputColor = blendHue(outputColor, $inputColor);</string>
+		</dict>
+		<key>lighten</key>
+		<dict>
+			<key>line</key>
+			<string>outputColor = mix(previousOutputColor, max(outputColor, inputColor), inputColor.a);</string>
+			<key>prefix</key>
+			<string>outputColor = mix(previousOutputColor, max(outputColor, $inputColor), $inputColor.a);</string>
+		</dict>
+		<key>linearburn</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendLinearburn(mediump vec4 bg, mediump vec4 fg)
+{
+	return vec4(clamp(bg.rgb + fg.rgb - vec3(1.0), vec3(0.0), vec3(1.0)), bg.a);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = blendLinearburn(outputColor, $inputColor);</string>
+		</dict>
+		<key>lookup</key>
+		<dict>
+			<key>headers</key>
+			<array>
+				<string>blueFColor</string>
+				<string>quad1</string>
+				<string>quad2</string>
+				<string>texPos1</string>
+				<string>texPos2</string>
+				<string>newColor1</string>
+				<string>newColor2</string>
+			</array>
+			<key>line</key>
+			<string>blueFColor = outputColor.b * 63.0;
+
+    quad1.y = floor(floor(blueFColor) / 8.0);
+    quad1.x = floor(blueFColor) - (quad1.y * 8.0);
+
+    quad2.y = floor(ceil(blueFColor) / 8.0);
+    quad2.x = ceil(blueFColor) - (quad2.y * 8.0);
+
+    texPos1.x = (quad1.x * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * outputColor.r);
+    texPos1.y = (quad1.y * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * outputColor.g);
+
+    texPos2.x = (quad2.x * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * outputColor.r);
+    texPos2.y = (quad2.y * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * outputColor.g);
+
+    newColor1 = texture2D(%%inputTexture%%, texPos1);
+    newColor2 = texture2D(%%inputTexture%%, texPos2);
+
+    inputColor = mix(newColor1, newColor2, fract(blueFColor));
+    outputColor = vec4(inputColor.rgb, outputColor.w); </string>
+		</dict>
+		<key>luminosity</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendLuminosity (mediump vec4 bg, mediump vec4 fg)
+{
+	return vec4(bg.rgb * (1.0 - fg.a) + setlum(bg.rgb, lum(fg.rgb)) * fg.a, bg.a);
+}</string>
+			<key>functions</key>
+			<string>lum,clipcolor,setlum</string>
+			<key>prefix</key>
+			<string>inputColor = blendLuminosity(outputColor, $inputColor);</string>
+		</dict>
+		<key>mask</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendMask(mediump vec4 bg, mediump vec4 fg, mediump vec4 bgColor)
+{
+	mediump float newAlpha = dot(fg.rgb, vec3(.33333334, .33333334, .33333334)) * fg.a;
+
+	bg = vec4(bg.xyz, newAlpha);
+	if (bg.a == 0.0) {
+	    bg = bgColor;
+	} else {
+	    bg = vec4(mix(bgColor.rgb, bg.rgb * bg.a,
+	                           bg.a), 1.0);
+	}
+	return bg;
+}</string>
+			<key>line</key>
+			<string>outputColor = inputColor;
+outputColor = blendMask(previousOutputColor, maskColor, inputColor);</string>
+			<key>line_header</key>
+			<string>maskColor = inputColor;
+inputColor = foregroundColorUniform$i;</string>
+			<key>uniforms</key>
+			<string>background</string>
+		</dict>
+		<key>maskblack</key>
+		<dict>
+			<key>line</key>
+			<string>outputColor = mix(previousOutputColor, outputColor, (1.0-%%textureColor%%.r)*%%textureColor%%.a);</string>
+		</dict>
+		<key>maskmultiply</key>
+		<dict>
+			<key>line</key>
+			<string>outputColor = inputColor;
+outputColor = mix(previousOutputColor, outputColor, maskColor.r*maskColor.a);</string>
+			<key>line_header</key>
+			<string>maskColor = vec4((1.0 - inputColor.rgb), inputColor.a);
+inputColor = foregroundColorUniform$i;</string>
+			<key>uniforms</key>
+			<string>foreground</string>
+		</dict>
+		<key>maskscreen</key>
+		<dict>
+			<key>line</key>
+			<string>outputColor = inputColor;
+outputColor = mix(previousOutputColor, outputColor, maskColor.r*maskColor.a);</string>
+			<key>line_header</key>
+			<string>maskColor = inputColor;
+inputColor = foregroundColorUniform$i;</string>
+			<key>uniforms</key>
+			<string>foreground</string>
+		</dict>
+		<key>mix</key>
+		<dict>
+			<key>___line</key>
+			<string>outputColor = blendAlphamix(outputColor, inputColor);</string>
+			<key>_blend</key>
+			<string>mediump vec4 blendAlphamix(mediump vec4 bg, mediump vec4 fg)
+{
+	if (fg.a == 0.0) {
+		} else {
+		bg = vec4(mix(bg.rgb, fg.rgb, fg.a), bg.a);
+	}
+	return bg;
+}</string>
+			<key>_line</key>
+			<string>outputColor = blendAlphamix(outputColor, inputColor);</string>
+			<key>blend 2</key>
+			<string>mediump vec4 blendAlphamix(mediump vec4 bg, mediump vec4 fg)
+{
+	if (fg.a == 0.0) {
+
+    } else {
+        bg = vec4(mix(bg.rgb, fg.rgb/fg.a, fg.a), bg.a);
+    }
+    return bg;
+}</string>
+			<key>line</key>
+			<string>outputColor = mix(outputColor, inputColor, inputColor.a);</string>
+		</dict>
+		<key>multiply</key>
+		<dict>
+			<key>_line</key>
+			<string>outputColor = blendMultiply(outputColor, inputColor);
+</string>
+			<key>blend</key>
+			<string>mediump vec4 blendMultiply(mediump vec4 bg, mediump vec4 fg)
+{
+	return mix(bg, fg * bg + fg * (1.0 - bg.a) + bg * (1.0 - fg.a), fg.a);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = blendMultiply(outputColor, $inputColor);</string>
+		</dict>
+		<key>normal</key>
+		<dict>
+			<key>line</key>
+			<string>outputColor = mix(previousOutputColor,inputColor,inputColor.a);</string>
+		</dict>
+		<key>overlay</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendOverlay(mediump vec4 bg, mediump vec4 fg)
+{
+	mediump float ra;
+	mediump float ga;
+	mediump float ba;
+	if (2.0 * bg.r &lt; bg.a) {
+        ra = 2.0 * fg.r * bg.r + fg.r * (1.0 - bg.a) + bg.r * (1.0 - fg.a);
+    } else {
+        ra = fg.a * bg.a - 2.0 * (bg.a - bg.r) * (fg.a - fg.r) + fg.r * (1.0 - bg.a) + bg.r * (1.0 - fg.a);
+    }
+
+    if (2.0 * bg.g &lt; bg.a) {
+        ga = 2.0 * fg.g * bg.g + fg.g * (1.0 - bg.a) + bg.g * (1.0 - fg.a);
+    } else {
+        ga = fg.a * bg.a - 2.0 * (bg.a - bg.g) * (fg.a - fg.g) + fg.g * (1.0 - bg.a) + bg.g * (1.0 - fg.a);
+    }
+
+    if (2.0 * bg.b &lt; bg.a) {
+        ba = 2.0 * fg.b * bg.b + fg.b * (1.0 - bg.a) + bg.b * (1.0 - fg.a);
+    } else {
+        ba = fg.a * bg.a - 2.0 * (bg.a - bg.b) * (fg.a - fg.b) + fg.b * (1.0 - bg.a) + bg.b * (1.0 - fg.a);
+    }
+
+    return vec4(ra, ga, ba, 1.0);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = blendOverlay(outputColor, $inputColor);</string>
+		</dict>
+		<key>saturation</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendSaturation (mediump vec4 bg, mediump vec4 fg)
+{
+	return vec4(bg.rgb * (1.0 - fg.a) + setlum(setsat(bg.rgb, sat(fg.rgb)), lum(bg.rgb)) * fg.a, bg.a);
+}</string>
+			<key>functions</key>
+			<string>lum,clipcolor,setlum,sat,setsat</string>
+			<key>prefix</key>
+			<string>inputColor = blendSaturation(outputColor, $inputColor);</string>
+		</dict>
+		<key>screen</key>
+		<dict>
+			<key>_line</key>
+			<string>outputColor = blendScreen(outputColor, inputColor);
+</string>
+			<key>blend</key>
+			<string>mediump vec4 blendScreen(mediump vec4 bg, mediump vec4 fg)
+{
+	return mix(bg, whiteColor - ((whiteColor - fg) * (whiteColor - bg)), fg.a);
+}</string>
+			<key>constants</key>
+			<string>white</string>
+			<key>prefix</key>
+			<string>inputColor = blendScreen(outputColor, $inputColor);</string>
+		</dict>
+		<key>softlight</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendSoftlight(mediump vec4 bg, mediump vec4 fg)
+{
+	return bg * (fg.a * (bg / bg.a) + (2.0 * fg * (1.0 - (bg / bg.a)))) + fg * (1.0 - bg.a) + bg * (1.0 - fg.a);
+
+}</string>
+			<key>prefix</key>
+			<string>inputColor = blendSoftlight(outputColor, $inputColor);</string>
+		</dict>
+		<key>subtract</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendSubtract(mediump vec4 bg, mediump vec4 fg)
+{
+	return vec4(bg.rgb - fg.rgb, bg.a);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = blendSubtract(outputColor, $inputColor);</string>
+		</dict>
+		<key>texturemap</key>
+		<dict>
+			<key>blend</key>
+			<string>mediump vec4 blendTexturemap(mediump vec4 bg, mediump vec4 fg)
+{
+	if (fg.a == 0.0) {
+         return bg;
+     }
+     return vec4(mix(bg.rgb, fg.rgb, fg.a), bg.a);    
+}</string>
+			<key>prefix</key>
+			<string>inputColor = blendTexturemap(outputColor, $inputColor);</string>
+		</dict>
+	</dict>
+	<key>constants</key>
+	<dict>
+		<key>RGBtoYIQ</key>
+		<string>const mediump mat3 RGBtoYIQ = mat3(0.299, 0.587, 0.114, 0.596, -0.274, -0.322, 0.212, -0.523, 0.311);</string>
+		<key>YIQtoRGB</key>
+		<string>const mediump mat3 YIQtoRGB = mat3(1.0, 0.956, 0.621, 1.0, -0.272, -0.647, 1.0, -1.105, 1.702);</string>
+		<key>_vignette</key>
+		<string>lowp vec2 vignetteCenter; lowp vec3 vignetteColor; highp float vignetteStart; highp float vignetteEnd;</string>
+		<key>black</key>
+		<string>mediump vec4 blackColor = vec4(0.0,0.0,0.0,1.0);</string>
+		<key>blue</key>
+		<string>mediump vec4 blueColor = vec4(0.0, 0.0, 1.0, 1.0);</string>
+		<key>blueFColor</key>
+		<string>highp float blueFColor;</string>
+		<key>colorW</key>
+		<string>const highp vec3 W = vec3(0.2125, 0.7154, 0.0721);</string>
+		<key>cyan</key>
+		<string>mediump vec4 cyanColor = vec4(0.0, 1.0, 1.0, 1.0);</string>
+		<key>green</key>
+		<string>mediump vec4 greenColor = vec4(0.0, 1.0, 0.0, 1.0);</string>
+		<key>highpfloat</key>
+		<string>precision highp float;</string>
+		<key>hsluminanceWeighting</key>
+		<string>const mediump vec3 hsluminanceWeighting = vec3(0.3, 0.3, 0.3);</string>
+		<key>kRGBToI</key>
+		<string>const highp vec4  kRGBToI     = vec4 (0.595716, -0.274453, -0.321263, 0.0);</string>
+		<key>kRGBToQ</key>
+		<string>const highp vec4  kRGBToQ     = vec4 (0.211456, -0.522591, 0.31135, 0.0);</string>
+		<key>kRGBToYPrime</key>
+		<string>const highp vec4  kRGBToYPrime = vec4 (0.299, 0.587, 0.114, 0.0);</string>
+		<key>kYIQToB</key>
+		<string>const highp vec4  kYIQToB   = vec4 (1.0, -1.1070, 1.7046, 0.0);</string>
+		<key>kYIQToG</key>
+		<string>const highp vec4  kYIQToG   = vec4 (1.0, -0.2721, -0.6474, 0.0);</string>
+		<key>kYIQToR</key>
+		<string>const highp vec4  kYIQToR   = vec4 (1.0, 0.9563, 0.6210, 0.0);
+</string>
+		<key>lvlmax</key>
+		<string>lowp vec3 lvlmid;</string>
+		<key>lvlmaxout</key>
+		<string>lowp vec3 lvlmaxOut;</string>
+		<key>lvlmid</key>
+		<string>lowp vec3 lvlmax;</string>
+		<key>lvlmin</key>
+		<string>lowp vec3 lvlmin;</string>
+		<key>lvlminout</key>
+		<string>lowp vec3 lvlminOut;</string>
+		<key>magenta</key>
+		<string>mediump vec4 magentaColor = vec4(1.0, 0.0, 1.0, 1.0);</string>
+		<key>newColor1</key>
+		<string>lowp vec4 newColor1;</string>
+		<key>newColor2</key>
+		<string>lowp vec4 newColor2;</string>
+		<key>precision</key>
+		<string>precision mediump float;</string>
+		<key>processed</key>
+		<string>lowp vec3 processed;</string>
+		<key>quad1</key>
+		<string>highp vec2 quad1;</string>
+		<key>quad2</key>
+		<string>highp vec2 quad2;</string>
+		<key>red</key>
+		<string>mediump vec4 redColor = vec4(1.0, 0.0, 0.0, 1.0);</string>
+		<key>rgb</key>
+		<string>lowp vec3 rgb;</string>
+		<key>satgreyscalecolor</key>
+		<string>lowp vec3 satgreyScaleColor;</string>
+		<key>satluminance</key>
+		<string>lowp float satluminance;</string>
+		<key>satluminanceweighting</key>
+		<string>const mediump vec3 satluminanceWeighting = vec3(0.2125, 0.7154, 0.0721);</string>
+		<key>texPos1</key>
+		<string>highp vec2 texPos1;</string>
+		<key>texPos2</key>
+		<string>highp vec2 texPos2;</string>
+		<key>warmFilter</key>
+		<string>const lowp vec3 warmFilter = vec3(0.93, 0.54, 0.0);</string>
+		<key>white</key>
+		<string>mediump vec4 whiteColor = vec4(1.0);
+mediump vec4 blueColor = vec4(0.0,0.0,1.0,1.0);
+mediump vec4 redColor = vec4(1.0,0.0,0.0,1.0);
+mediump vec4 greenColor = vec4(0.0,1.0,0.0,1.0);</string>
+		<key>yellow</key>
+		<string>mediump vec4 yellowColor = vec4(1.0, 1.0, 0.0, 1.0);</string>
+		<key>yiq</key>
+		<string>mediump vec3 yiq;</string>
+	</dict>
+	<key>functions</key>
+	<dict>
+		<key>highlightstint</key>
+		<dict>
+			<key>constants</key>
+			<string>satluminanceweighting</string>
+			<key>function</key>
+			<string>mediump vec4 setHighlightTint(mediump vec4 c, highp vec4 highlightTintColor, lowp float highlightTintIntensity)
+{
+	highp float luminance = dot(c.rgb, satluminanceWeighting);
+	highp vec4 highlightResult = mix(c, vec4( mix(c.rgb, highlightTintColor.rgb, luminance), c.a), highlightTintIntensity);
+	return highlightResult;
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setHighlightTint(inputColor, highlightTint$i, highlightIntensity$i);</string>
+			<key>uniforms</key>
+			<string>highlightIntensity</string>
+		</dict>
+		<key>shadowstint</key>
+		<dict>
+			<key>constants</key>
+			<string>satluminanceweighting</string>
+			<key>function</key>
+			<string>mediump vec4 setShadowTint(mediump vec4 c, highp vec4 shadowTintColor, lowp float shadowTintIntensity)
+{
+	highp float luminance = dot(c.rgb, satluminanceWeighting);
+	return mix(c, max(c, vec4( mix(shadowTintColor.rgb, c.rgb, luminance), c.a)), shadowTintIntensity);
+	
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setShadowTint(inputColor, shadowTint$i, shadowIntensity$i);</string>
+			<key>uniforms</key>
+			<string>shadowIntensity</string>
+		</dict>
+		<key>adjustcolor</key>
+		<dict>
+			<key>_function</key>
+			<string>mediump vec4 adjustcolor (mediump vec4 c, mediump vec4 source, mediump vec4 n, highp vec3 t, highp vec3 r, mediump vec4 map)
+{
+	float thresholdSensitivity = t.r*0.25;
+	float smoothing = t.g*0.25;
+	float opacity = t.b;
+	mediump vec3 hsb = rgb2hsb(c.rgb);
+	mediump vec3 nhsb = rgb2hsb(source.rgb);
+	mediump vec3 maphsb = rgb2hsb(map.rgb);
+	// float centerHueAngle = hsb.r;
+	// float destCenterHueAngle = nhsb.r;
+	// if (nhsb.r == 0.0) { nhsb.r = 1.0; }
+	// if (hsb.r == 0.0) { hsb.r = 1.0; }
+	if (nhsb.r &gt;= 0.98 &amp;&amp; hsb.r &lt;= 0.02) { hsb.r = 1.0 - hsb.r; }
+	if (hsb.r &gt;= 0.98 &amp;&amp; nhsb.r &lt;= 0.02) { nhsb.r = 1.0 - nhsb.r; }
+	float minHueAngle = clamp(nhsb.r + r.r,0.0,1.0);
+	float maxHueAngle = clamp(nhsb.r + r.b,0.0,1.0);
+	// float hueAdjustment = centerHueAngle - nhsb.r;
+	// float compress = abs(hsb.r-nhsb.r);
+	// float compressBrightness = abs(hsb.z-nhsb.z);
+	if(maphsb.b &gt; t.b)
+	{
+		if(hsb.r &lt; minHueAngle || hsb.r &gt; maxHueAngle)
+		{
+			return c;
+		}
+		return mix(c, n, 1.0-distance(hsb,nhsb));
+	}
+	return mix(c, n, 1.0-map.r);
+}</string>
+			<key>_functions</key>
+			<string>hsbrgb</string>
+			<key>constants</key>
+			<string>highpfloat</string>
+			<key>prefix</key>
+			<string>highp float blueColor$c = inputColor.b * 63.0;
+highp vec2 quad1$c;
+quad1$c.y = floor(floor(blueColor$c) / 8.0);
+quad1$c.x = floor(blueColor$c) - (quad1$c.y * 8.0);
+highp vec2 quad2$c;
+quad2$c.y = floor(ceil(blueColor$c) / 8.0);
+quad2$c.x = ceil(blueColor$c) - (quad2$c.y * 8.0);
+highp vec2 texPos1$c;
+texPos1$c.x = (quad1$c.x * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * inputColor.r);
+texPos1$c.y = (quad1$c.y * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * inputColor.g);
+highp vec2 texPos2$c;
+texPos2$c.x = (quad2$c.x * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * inputColor.r);
+texPos2$c.y = (quad2$c.y * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * inputColor.g);
+lowp vec4 newColor1$c = texture2D(inputImageTexture2, texPos1$c);
+lowp vec4 newColor2$c = texture2D(inputImageTexture2, texPos2$c);
+lowp vec4 newColor$c = mix(newColor1$c, newColor2$c, fract(blueColor$c));
+float opacity$c = adjustThreshold$c.b;
+float compress$c = abs(distance(previousOutputColor, adjustColor$c));
+float thresholdSensitivity$c = adjustThreshold$c.r;
+float smoothing$c = adjustThreshold$c.g;
+float dr$c = 1.0-clamp(distance(inputColor, adjustColor$c),0.0,1.0);
+dr$c = clamp(dr$c-compress$c,0.0,1.0);
+float b$c = smoothstep(thresholdSensitivity$c, thresholdSensitivity$c+smoothing$c, dr$c);
+float mapIntensity$c = clamp((newColor$c.r/brightest$c) * (1.0 + adjustRange$c.b*2.0),0.0,1.0);
+if(mapIntensity$c &gt; 0.0)
+{
+	float lowMapIntensity$c = (mapIntensity$c)*(1.0+(adjustRange$c.r * -1.0));
+	mapIntensity$c = clamp(max(lowMapIntensity$c, mapIntensity$c),0.0,1.0);
+}
+inputColor = mix(previousOutputColor,adjustedColor$c,mapIntensity$c*opacity$c*b$c);</string>
+			<key>prefix 2</key>
+			<string>inputColor = adjustcolor(inputColor,adjustColor$c,adjustedColor$c,adjustThreshold$c,adjustRange$c,textureColor2);</string>
+			<key>prefix 3</key>
+			<string>inputColor = adjustcolor2(inputColor,adjustColor$c,adjustedColor$c,adjustThreshold$c,adjustRange$c,textureColor2);</string>
+			<key>prefix 4</key>
+			<string>highp float blueColor = inputColor.b * 63.0;
+highp vec2 quad1;
+quad1.y = floor(floor(blueColor) / 8.0);
+quad1.x = floor(blueColor) - (quad1.y * 8.0);
+highp vec2 quad2;
+quad2.y = floor(ceil(blueColor) / 8.0);
+quad2.x = ceil(blueColor) - (quad2.y * 8.0);
+highp vec2 texPos1;
+texPos1.x = (quad1.x * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * inputColor.r);
+texPos1.y = (quad1.y * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * inputColor.g);
+highp vec2 texPos2;
+texPos2.x = (quad2.x * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * inputColor.r);
+texPos2.y = (quad2.y * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * inputColor.g);
+lowp vec4 newColor1 = texture2D(inputImageTexture2, texPos1);
+lowp vec4 newColor2 = texture2D(inputImageTexture2, texPos2);
+lowp vec4 newColor = mix(newColor1, newColor2, fract(blueColor));
+inputColor = newColor;</string>
+			<key>uniforms</key>
+			<string>uniform mediump vec4 adjustColor$c;
+uniform mediump vec4 adjustedColor$c;
+uniform highp vec3 adjustThreshold$c;
+uniform highp vec3 adjustRange$c;
+uniform lowp float brightest$c;
+uniform lowp float darkest$c;</string>
+		</dict>
+		<key>adjustcolor2</key>
+		<dict>
+			<key>function</key>
+			<string>mediump vec4 adjustcolor2 (mediump vec4 c, mediump vec4 source, mediump vec4 n, highp vec3 t, highp vec3 r, mediump vec4 map)
+{
+	float thresholdSensitivity = t.r*0.25;
+	float smoothing = t.g*0.25;
+	float opacity = t.b;
+	mediump vec3 hsb = rgb2hsb(c.rgb);
+	mediump vec3 nhsb = rgb2hsb(source.rgb);
+	float centerHueAngle = hsb.r;
+	float destCenterHueAngle = nhsb.r;
+	float minHueAngle = clamp(nhsb.r + r.r,0.0,1.0);
+	float maxHueAngle = clamp(nhsb.r + r.b,0.0,1.0);
+	float hueAdjustment = centerHueAngle - destCenterHueAngle;
+	if (destCenterHueAngle == 0.0) { destCenterHueAngle = 1.0; }
+	float compress = abs(hsb.r-nhsb.r);
+	float compressBrightness = abs(hsb.z-nhsb.z);
+	// float compressSaturation = abs(hsb.y-nhsb.y)*0.4;
+	// return vec4(hsb.r+r.r, 0.0,0.0,1.0);
+	// if (hsb.r &lt; minHueAngle) { return whiteColor;  return c; }
+	// else if (hsb.r &gt; maxHueAngle) { return whiteColor; return c; }
+	
+	if (hsb.r &lt; minHueAngle) { return c; }
+		else if (hsb.r &gt; maxHueAngle) { return c; }
+		else
+		{
+				// return blackColor;
+				if(clamp(destCenterHueAngle,0.0,1.0) == 1.0)
+				{
+						hsb.r = 0.0;
+				}
+				else
+				{
+						hsb.r = hsb.r - clamp(hueAdjustment,0.0,1.0);
+				}
+				float dr = 1.0-clamp(distance(c, source),0.0,1.0);
+				// vec3 sh = nhsb;
+				// sh.r = sh.r + r.b;
+				// sh = hsb2rgb(sh);
+				// float dh = clamp(distance(c, vec4(sh,1.0)),0.0,1.0);
+				// sh = nhsb;
+				// sh.r = sh.r + r.r;
+				// sh = hsb2rgb(sh);
+				// float dl = clamp(distance(c, vec4(sh,1.0)),0.0,1.0);
+				// dr = max(max(dr,1.0-dl),1.0-dh);
+				// compress = compress - (dl-compress) -(dh-compress);
+				// return vec4(compress, 0.0,0.0,1.0);
+				// return vec4(dl, 0.0,0.0,1.0);
+				// 	return vec4(dh, 0.0,0.0,1.0);
+				// 	return vec4(dr, 0.0,0.0,1.0);
+				dr = clamp(dr-compress-compressBrightness,0.0,1.0);
+				float b = smoothstep(thresholdSensitivity, thresholdSensitivity+smoothing, dr*0.5);
+				return mix(c,n,dr*opacity*(b));
+		}
+	return c;
+}</string>
+		</dict>
+		<key>adjustcolor3</key>
+		<dict>
+			<key>function</key>
+			<string>mediump vec4 adjustcolor3 (mediump vec4 c, mediump vec4 source, mediump vec4 n, highp vec3 t, highp vec3 r, mediump vec4 map)
+{
+	float thresholdSensitivity = t.r*0.25;
+	float smoothing = t.g*0.25;
+	float opacity = t.b;
+	mediump vec3 hsb = rgb2hsb(c.rgb);
+	mediump vec3 nhsb = rgb2hsb(source.rgb);
+	highp float blueColor = c.b * 63.0;
+	highp vec2 quad1;
+	quad1.y = floor(floor(blueColor) / 8.0);
+	quad1.x = floor(blueColor) - (quad1.y * 8.0);
+	highp vec2 quad2;
+	quad2.y = floor(ceil(blueColor) / 8.0);
+	quad2.x = ceil(blueColor) - (quad2.y * 8.0);
+	highp vec2 texPos1;
+	texPos1.x = (quad1.x * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * c.r);
+	texPos1.y = (quad1.y * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * c.g);
+	highp vec2 texPos2;
+	texPos2.x = (quad2.x * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * c.r);
+	texPos2.y = (quad2.y * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * c.g);
+	lowp vec4 newColor1 = texture2D(map, texPos1);
+	lowp vec4 newColor2 = texture2D(map, texPos2);
+	lowp vec4 newColor = mix(newColor1, newColor2, fract(blueColor));
+	return newColor;
+}</string>
+		</dict>
+		<key>backgroundColor</key>
+		<string></string>
+		<key>brightness</key>
+		<dict>
+			<key>function</key>
+			<string>mediump vec4 setBrightness(mediump vec4 c, lowp float b)
+{
+	return thresholdColor(vec4((c.rgb + vec3(b)), c.a), blackColor, whiteColor);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setBrightness(inputColor, brightness$i);</string>
+			<key>uniforms</key>
+			<string>brightness</string>
+		</dict>
+		<key>clipcolor</key>
+		<string>mediump vec3 clipcolor(mediump vec3 c) {
+                                                    highp float l = lum(c);
+                                                    mediump float n = min(min(c.r, c.g), c.b);
+                                                    mediump float x = max(max(c.r, c.g), c.b);
+                                                    
+                                                    if (n &lt; 0.0) {
+                                                        c.r = l + ((c.r - l) * l) / (l - n);
+                                                        c.g = l + ((c.g - l) * l) / (l - n);
+                                                        c.b = l + ((c.b - l) * l) / (l - n);
+                                                    }
+                                                    if (x &gt; 1.0) {
+                                                        c.r = l + ((c.r - l) * (1.0 - l)) / (x - l);
+                                                        c.g = l + ((c.g - l) * (1.0 - l)) / (x - l);
+                                                        c.b = l + ((c.b - l) * (1.0 - l)) / (x - l);
+                                                    }
+                                                    
+                                                    return c;
+                                                }</string>
+		<key>colorbalance</key>
+		<dict>
+			<key>function</key>
+			<string>mediump vec4 colorBalance(mediump vec4 c, highp vec3 cb)
+{
+	return thresholdColor(vec4(c.r * cb.r, c.g * cb.g, c.b * cb.b, c.a), blackColor, whiteColor);;
+}</string>
+			<key>prefix</key>
+			<string>inputColor = colorBalance(inputColor, colorbalance$i);</string>
+			<key>uniforms</key>
+			<string>colorbalance</string>
+		</dict>
+		<key>compare</key>
+		<string>bool compareVectors (mediump vec4 sample,mediump vec4 texel, lowp vec4 t){
+	bool result;
+	if ( abs(texel.r-sample.r) &gt; t.r ) {
+		return result = false;
+	}
+	if ( abs(texel.g-sample.g) &gt; t.g ) {
+		return result = false;
+	}
+	if ( abs(texel.b-sample.b) &gt; t.b ) {
+		return result = false;
+	}
+	return result = true;
+}</string>
+		<key>compare-static</key>
+		<string>bool compareVectors (mediump vec4 sample,mediump vec4 texel, mediump vec3 t){
+	bool result;
+	if ( abs(texel.r-sample.r) &gt; 0.1 ) {
+		return result = false;
+	}
+	if ( abs(texel.g-sample.g) &gt; 0.1 ) {
+		return result = false;
+	}
+	if ( abs(texel.b-sample.b) &gt; 0.1 ) {
+		return result = false;
+	}
+	return result = true;
+}</string>
+		<key>contrast</key>
+		<dict>
+			<key>function</key>
+			<string>mediump vec4 setContrast(mediump vec4 c, lowp float x)
+{
+	return thresholdColor(vec4(((c.rgb - vec3(0.5)) * x + vec3(0.5)), c.a), blackColor, whiteColor);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setContrast(inputColor, contrast$i);</string>
+			<key>uniforms</key>
+			<string>contrast</string>
+		</dict>
+		<key>controlOutput</key>
+		<string>var:control</string>
+		<key>exposure</key>
+		<dict>
+			<key>function</key>
+			<string>mediump vec4 setExposure(mediump vec4 c, lowp float x)
+{	
+	return thresholdColor(vec4(c.rgb * pow(2.0, x), c.a), blackColor, whiteColor);
+	
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setExposure(inputColor, exposure$i);</string>
+			<key>uniforms</key>
+			<string>exposure</string>
+		</dict>
+		<key>false</key>
+		<dict>
+			<key>constants</key>
+			<string>hsluminanceWeighting</string>
+			<key>function</key>
+			<string>mediump vec4 setFalse(mediump vec4 c, vec3 f1, vec3 f2)
+{
+	float luminance = dot(c.rgb, satluminanceweighting);
+
+		return thresholdColor(vec4( mix(f1.rgb, f2.rgb, luminance), c.a), blackColor, whiteColor);
+	
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setFalse(inputColor,fdark$i,flight$i);</string>
+			<key>uniforms</key>
+			<string>false</string>
+		</dict>
+		<key>gamma</key>
+		<dict>
+			<key>function</key>
+			<string>mediump vec4 setGamma(mediump vec4 c, lowp float x)
+{
+	return thresholdColor(vec4(pow(c.rgb, vec3(x)), c.a), blackColor, whiteColor);
+	
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setGamma(inputColor, gamma$i);</string>
+			<key>uniforms</key>
+			<string>gamma</string>
+		</dict>
+		<key>grain</key>
+		<dict>
+			<key>function</key>
+			<string>mediump float grainRand(highp vec2 co)
+{
+	return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+}
+
+// mediump vec4 setGrain(mediump vec4 c, highp vec2 co, lowp float alpha, lowp float gtime, lowp float threshold, lowp vec4 color, lowp float theScale)
+// {
+// 	//just get a random number, using the vertex&apos;s screen-space position as a seed along with the time.
+// 	mediump float r = grainRand(vec2((co.x/2.0 + sin(gtime))*theScale, (co.y/2.0 + cos(gtime))*theScale));
+// 	//play with the noise a bit; clamp it based on its value and scale the alpha.
+// 	if(r &lt; threshold) r = 0.0;
+// 	return mix(c,clamp(vec4(r,r,r,r*0.7), 0.0, 1.0), alpha);
+// }
+
+mediump vec4 setGrain(mediump vec4 c, highp vec2 co, lowp float alpha, lowp float gtime, lowp float threshold, lowp vec4 color, lowp float theScale)
+{
+	//just get a random number, using the vertex&apos;s screen-space position as a seed along with the time.
+	mediump float r = grainRand(vec2((co.x/2.0 + sin(gtime))*theScale, (co.y/2.0 + cos(gtime))*theScale));
+	//play with the noise a bit; clamp it based on its value and scale the alpha.
+	if(r &lt; threshold) return redColor;
+	return vec4(vec3(r),1.0);
+	return mix(c,clamp(vec4(r,r,r,r*0.7), 0.0, 1.0), alpha);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setGrain(inputColor, textureCoordinate, grainAlpha, grainTime, grainThreshold, grainColor, fullScale);</string>
+			<key>uniforms</key>
+			<string>grain</string>
+		</dict>
+		<key>haze</key>
+		<dict>
+			<key>constants</key>
+			<string>white</string>
+			<key>function</key>
+			<string>mediump vec4 setHaze(mediump vec4 c, highp float h)
+{
+	return thresholdColor((c - h * whiteColor) / (1.0 -h), blackColor, whiteColor);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setHaze(inputColor, textureCoordinate.y * hazeSlope$i  +  haze$i);</string>
+			<key>uniforms</key>
+			<string>haze,hazeSlope</string>
+		</dict>
+		<key>hsb</key>
+		<dict>
+			<key>function</key>
+			<string>mediump vec4 setHsb(mediump vec4 c, lowp mat4 m, lowp float i)
+{
+	lowp vec4 c2 = (i * (c * m)) + ((1.0 - i) * c);
+	return thresholdColor(vec4(c2.rgb, c.a), blackColor, whiteColor);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setHsb(inputColor, hsb$i, hsbintensity$i);</string>
+			<key>uniforms</key>
+			<string>hsb</string>
+		</dict>
+		<key>hsbrgb</key>
+		<string>mediump vec3 rgb2hsb(mediump vec3 c)
+{
+	mediump vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+	mediump vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+	mediump vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+	float d = q.x - min(q.w, q.y);
+	float e = 1.0e-10;
+	return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+mediump vec3 hsb2rgb(mediump vec3 c)
+{
+	mediump vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+	mediump vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+	return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}</string>
+		<key>hue</key>
+		<dict>
+			<key>constants</key>
+			<string>kRGBToYPrime,kRGBToI,kRGBToQ,kYIQToR,kYIQToG,kYIQToB</string>
+			<key>function</key>
+			<string>mediump vec4 setHue(mediump vec4 c, lowp float t)
+{
+     highp float   YPrime  = dot (c, kRGBToYPrime);
+     highp float   I      = dot (c, kRGBToI);
+     highp float   Q      = dot (c, kRGBToQ);
+     
+     highp float   hue     = atan (Q, I);
+     highp float   chroma  = sqrt (I * I + Q * Q);
+     
+     hue += (-t); 
+     
+     Q = chroma * sin (hue);
+     I = chroma * cos (hue);
+     
+     highp vec4    yIQ   = vec4 (YPrime, I, Q, 0.0);
+     c.r = dot (yIQ, kYIQToR);
+     c.g = dot (yIQ, kYIQToG);
+     c.b = dot (yIQ, kYIQToB);
+	return  c;
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setHue(inputColor, temp$i);</string>
+			<key>uniforms</key>
+			<string>hue</string>
+		</dict>
+		<key>intensity</key>
+		<dict>
+			<key>function</key>
+			<string>mediump vec4 intensity(lowp float i, mediump vec4 c1, mediump vec4 c2)
+{
+	return mix(c1,mix(c1, c2, i), c2.a);
+}</string>
+			<key>suffix</key>
+			<string>outputColor = intensity(intensityUniform$i, previousOutputColor, outputColor);</string>
+			<key>uniforms</key>
+			<string>intensity</string>
+		</dict>
+		<key>invert</key>
+		<string>mediump vec4 invert(mediump vec4 c)
+{
+	return vec4((1.0 - c.rgb), c.w);
+	
+}</string>
+		<key>levels</key>
+		<dict>
+			<key>function</key>
+			<string>mediump vec3 GammaCorrection(mediump vec3 color, mediump vec3 gamma)
+{
+	return pow(color, 1.0/gamma);
+}
+mediump vec3 LevelsControlInputRange(mediump vec3 color, mediump vec3 minInput, mediump vec3 maxInput)
+{
+	return min(max(color - minInput, vec3(0.0)) / (maxInput - minInput), vec3(1.0));
+}
+mediump vec3 LevelsControlInput(mediump vec3 color, mediump vec3 minInput, mediump vec3 gamma, mediump vec3 maxInput)
+{
+	return GammaCorrection(LevelsControlInputRange(color, minInput, maxInput), gamma);
+}
+mediump vec3 LevelsControlOutputRange(mediump vec3 color, mediump vec3 minOutput, mediump vec3 maxOutput)
+{
+	return mix(minOutput, maxOutput, color);
+}
+mediump vec3 LevelsControl(mediump vec3 color, mediump vec3 minInput, mediump vec3 gamma, mediump vec3 maxInput, mediump vec3 minOutput, mediump vec3 maxOutput)
+{
+	return LevelsControlOutputRange(LevelsControlInput(color, minInput, gamma, maxInput), minOutput, maxOutput);
+}
+mediump vec4 setLevels(mediump vec4 c, mediump vec3 levelMinimum, mediump vec3 levelMiddle, mediump vec3 levelMaximum, mediump vec3 minOutput, mediump vec3 maxOutput)
+{
+	return vec4(LevelsControl(c.rgb, levelMinimum, levelMiddle, levelMaximum, minOutput, maxOutput), c.a);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setLevels(inputColor, lvlmin$i,lvlmid$i,lvlmax$i,lvlmino$i,lvlmaxo$i);</string>
+			<key>uniforms</key>
+			<string>levels</string>
+		</dict>
+		<key>lum</key>
+		<string> highp float lum(lowp vec3 c) {
+     return dot(c, vec3(0.3, 0.59, 0.11));
+ }</string>
+		<key>matrix</key>
+		<dict>
+			<key>function</key>
+			<string>mediump vec4 setColorMatrix(mediump vec4 c, lowp mat4 m, lowp float i)
+{
+	lowp vec4 c1 = c * m;
+
+	     mediump vec4 c2 = (i * c1) + ((1.0 - i) * c);
+	
+		return thresholdColor(vec4(c2.rgb, c.a), blackColor, whiteColor);
+	
+	
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setColorMatrix(inputColor, colorMatrix$i, matintensity$i);</string>
+			<key>uniforms</key>
+			<string>matrix</string>
+		</dict>
+		<key>mid</key>
+		<string>mediump float mid(mediump float cmin, mediump float cmid, mediump float cmax, highp float s) {
+                                                     return ((cmid - cmin) * s) / (cmax - cmin);
+                                                 }</string>
+		<key>nearColor</key>
+		<string>lowp float nearColor(lowp vec4 col, lowp vec4 tcol, lowp float error) {
+       if( abs(col.r-tcol.r) &lt; error )
+       {
+           if(abs(col.g-tcol.g) &lt; error)
+           {
+                if(abs(col.b-tcol.b) &lt; error)
+                {
+                    return 1.0;
+                }
+           }
+       }
+       return 0.0;
+       
+       
+   }</string>
+		<key>sat</key>
+		<string>highp float sat(mediump vec3 c) {
+                                                     mediump float n = min(min(c.r, c.g), c.b);
+                                                     mediump float x = max(max(c.r, c.g), c.b);
+                                                     return x - n;
+                                                 }</string>
+		<key>saturation</key>
+		<dict>
+			<key>constants</key>
+			<string>satluminanceweighting</string>
+			<key>function</key>
+			<string>mediump vec4 setSaturation(mediump vec4 c, lowp float s)
+{
+	lowp float luminance = dot(c.rgb, satluminanceWeighting);
+	lowp vec3 greyScaleColor = vec3(luminance);
+	return thresholdColor(vec4(mix(greyScaleColor, c.rgb, s), c.a), blackColor, whiteColor);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setSaturation(inputColor, saturation$i);</string>
+			<key>uniforms</key>
+			<string>saturation</string>
+		</dict>
+		<key>setlum</key>
+		<string>mediump vec3 setlum(mediump vec3 c, highp float l) {
+                                                        highp float d = l - lum(c);
+                                                        c = c + vec3(d);
+                                                        return clipcolor(c);
+                                                    }</string>
+		<key>setsat</key>
+		<string>mediump vec3 setsat(mediump vec3 c, highp float s) {
+                                                        if (c.r &gt; c.g) {
+                                                            if (c.r &gt; c.b) {
+                                                                if (c.g &gt; c.b) {
+                                                                    /* g is mid, b is min */
+                                                                    c.g = mid(c.b, c.g, c.r, s);
+                                                                    c.b = 0.0;
+                                                                } else {
+                                                                    /* b is mid, g is min */
+                                                                    c.b = mid(c.g, c.b, c.r, s);
+                                                                    c.g = 0.0;
+                                                                }
+                                                                c.r = s;
+                                                            } else {
+                                                                /* b is max, r is mid, g is min */
+                                                                c.r = mid(c.g, c.r, c.b, s);
+                                                                c.b = s;
+                                                                c.r = 0.0;
+                                                            }
+                                                        } else if (c.r &gt; c.b) {
+                                                            /* g is max, r is mid, b is min */
+                                                            c.r = mid(c.b, c.r, c.g, s);
+                                                            c.g = s;
+                                                            c.b = 0.0;
+                                                        } else if (c.g &gt; c.b) {
+                                                            /* g is max, b is mid, r is min */
+                                                            c.b = mid(c.r, c.b, c.g, s);
+                                                            c.g = s;
+                                                            c.r = 0.0;
+                                                        } else if (c.b &gt; c.g) {
+                                                            /* b is max, g is mid, r is min */
+                                                            c.g = mid(c.r, c.g, c.b, s);
+                                                            c.b = s;
+                                                            c.r = 0.0;
+                                                        } else {
+                                                            c = vec3(0.0);
+                                                        }
+                                                        return c;
+                                                    }</string>
+		<key>shadowshighlights</key>
+		<dict>
+			<key>constants</key>
+			<string>hsluminanceWeighting</string>
+			<key>function</key>
+			<string>mediump vec4 setShadHigh(mediump vec4 c, lowp float s, lowp float h)
+{
+	mediump float luminance = dot(c.rgb, hsluminanceWeighting);
+
+		mediump float shadow = clamp((pow(luminance, 1.0/(s+1.0)) + (-0.76)*pow(luminance, 2.0/(s+1.0))) - luminance, 0.0, 1.0);
+		mediump float highlight = clamp((1.0 - (pow(1.0-luminance, 1.0/(2.0-h)) + (-0.8)*pow(1.0-luminance, 2.0/(2.0-h)))) - luminance, -1.0, 0.0);
+		lowp vec3 result = vec3(0.0, 0.0, 0.0) + ((luminance + shadow + highlight) - 0.0) * ((c.rgb - vec3(0.0, 0.0, 0.0))/(luminance - 0.0));
+		return thresholdColor(vec4(result.rgb, c.a), blackColor, whiteColor);
+
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setShadHigh(inputColor,shadow$i,highlight$i);</string>
+			<key>uniforms</key>
+			<string>shadow,highlight</string>
+		</dict>
+		<key>shadowshighlightstint</key>
+		<dict>
+			<key>constants</key>
+			<string>satluminanceweighting</string>
+			<key>function</key>
+			<string>mediump vec4 setHighlightShadowTint(mediump vec4 c, highp vec4 shadowTintColor, highp vec4 highlightTintColor, lowp float shadowTintIntensity, lowp float highlightTintIntensity)
+{
+	highp float luminance = dot(c.rgb, satluminanceWeighting);
+	highp vec4 shadowResult = mix(c, max(c, vec4( mix(shadowTintColor.rgb, c.rgb, luminance), c.a)), shadowTintIntensity);
+	highp vec4 highlightResult = mix(c, min(shadowResult, vec4( mix(shadowResult.rgb, highlightTintColor.rgb, luminance), c.a)), highlightTintIntensity);
+	return vec4( mix(shadowResult.rgb, highlightResult.rgb, luminance), c.a);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setHighlightShadowTint(inputColor, shadowTint$i, highlightTint$i, shadowIntensity$i, highlightIntensity$i);</string>
+			<key>uniforms</key>
+			<string>shadowIntensity,highlightIntensity</string>
+		</dict>
+		<key>skin</key>
+		<dict>
+			<key>function</key>
+			<string>
+highp vec3 rgb2hsv(highp vec3 c)
+{
+    highp vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    highp vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    highp vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+    
+    highp float d = q.x - min(q.w, q.y);
+    highp float e = 1.0e-10;
+    highp vec3 c2 = vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+	return c2;
+}
+ 
+highp vec3 hsv2rgb(highp vec3 c)
+{
+    highp vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    highp vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    highp vec3 c2 =  c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+	return c2;
+}
+
+mediump vec4 skin(mediump vec4 c, highp float skinToneAdjust, mediump float skinHue, mediump float skinHueThreshold,int upperSkinToneColor,mediump float maxSaturationShift,mediump float maxHueShift)
+{
+	highp vec3 c1 = vec3(c.rgb);
+    highp vec3 colorHSV = rgb2hsv(c1);
+    highp float hue = colorHSV.x;
+    
+    highp float dist = hue - skinHue;
+    if (dist &gt; 0.5)
+        dist -= 1.0;
+    if (dist &lt; -0.5)
+        dist += 1.0;
+    dist = abs(dist)/0.5; // normalized to [0,1]
+    
+    highp float weight = exp(-dist*dist*skinHueThreshold);
+    weight = clamp(weight, 0.0, 1.0);
+    
+    if (upperSkinToneColor == 0) 
+	{
+        colorHSV.x += skinToneAdjust * weight * maxHueShift;
+    } 
+	else if (upperSkinToneColor == 1) 
+	{
+        if (skinToneAdjust &gt; 0.0)
+            colorHSV.y += skinToneAdjust * weight * maxSaturationShift;
+        else
+            colorHSV.x += skinToneAdjust * weight * maxHueShift;
+    }
+
+    highp vec3 finalColorRGB = hsv2rgb(colorHSV);
+	mediump vec4 c2 = vec4(finalColorRGB.rgb, c.a);
+	return c2;
+}</string>
+			<key>prefix</key>
+			<string>inputColor = skin(inputColor,skinToneAdjust$i,skinHue$i,skinHueThreshold$i,skinUpperSkinToneColor$i,skinMaxSaturationShift$i,skinMaxHueShift$i);</string>
+			<key>uniforms</key>
+			<string>skin</string>
+		</dict>
+		<key>threshold</key>
+		<dict>
+			<key>constants</key>
+			<string>white,black</string>
+			<key>function</key>
+			<string>mediump vec4 thresholdColor(mediump vec4 c, mediump vec4 l, mediump vec4 h)
+{
+	mediump vec4 n = c;
+	n.r = min(max(n.r, l.r),h.r);
+	n.g = min(max(n.g, l.g),h.g);
+	n.b = min(max(n.b, l.b),h.b);
+	return n;
+}</string>
+		</dict>
+		<key>tiltshift</key>
+		<string></string>
+		<key>tone</key>
+		<dict>
+			<key>constants</key>
+			<string>RGBtoYIQ,warmFilter,YIQtoRGB</string>
+			<key>function</key>
+			<string>mediump vec4 setTone(mediump vec4 c, lowp float t, lowp float t2)
+{
+		mediump vec3 yiq = RGBtoYIQ * c.rgb; 
+		yiq.b = clamp(yiq.b + t2*0.5226*0.1, -0.5226, 0.5226);
+		lowp vec3 rgb = YIQtoRGB * yiq;
+		lowp vec3 processed = vec3(
+			(rgb.r &lt; 0.5 ? (2.0 * rgb.r * warmFilter.r) : (1.0 - 2.0 * (1.0 - rgb.r) * (1.0 - warmFilter.r))),
+			(rgb.g &lt; 0.5 ? (2.0 * rgb.g * warmFilter.g) : (1.0 - 2.0 * (1.0 - rgb.g) * (1.0 - warmFilter.g))), 
+			(rgb.b &lt; 0.5 ? (2.0 * rgb.b * warmFilter.b) : (1.0 - 2.0 * (1.0 - rgb.b) * (1.0 - warmFilter.b))));
+			return  vec4(mix(rgb, processed, t), c.a);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = setTone(inputColor, temp$i, tint$i);</string>
+			<key>uniforms</key>
+			<string>temp,tint</string>
+		</dict>
+		<key>unsharpmask</key>
+		<string></string>
+		<key>vibrance</key>
+		<dict>
+			<key>function</key>
+			<string>mediump vec4 vibrance(mediump vec4 c, lowp float vibrance)
+{
+	lowp float average = (c.r + c.g + c.b) / 3.0;
+	lowp float mx = max(c.r, max(c.g, c.b));
+	lowp float amt = (mx - average) * (-vibrance * 3.0);
+	return mix(c.rgba, vec4(mx), amt);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = vibrance(inputColor, vibrance$i);</string>
+			<key>uniforms</key>
+			<string>vibrance</string>
+		</dict>
+		<key>vignette</key>
+		<dict>
+			<key>_function</key>
+			<string>mediump vec4 vignette(mediump vec4 c, highp vec2 coord, lowp vec2 vCenter, lowp vec4 vColor, highp float vStart, highp float vEnd)
+{
+	lowp float d = distance(coord, vec2(vCenter.x, vCenter.y));
+	lowp float percent = smoothstep(vStart, vEnd, d);
+	return mix(c, vec4(mix(c.rgb, vColor.rgb, percent), c.a), vColor.a);
+}</string>
+			<key>function</key>
+			<string>mediump vec4 vignette(mediump vec4 c, highp vec2 coord, lowp vec2 vCenter, lowp vec4 vColor, highp float vStart, highp float vEnd)
+{
+	lowp float d = distance(coord, vec2(vCenter.x, vCenter.y));
+	lowp float percent = smoothstep(vStart, vEnd, d);
+	return vec4(mix(c.rgb, vColor.rgb, min(max(0.0,percent*vColor.a),1.0)), c.a);
+}</string>
+			<key>function-blend</key>
+			<string>mediump vec4 vignetteBlend(mediump vec4 c, highp vec2 coord, lowp vec2 vCenter, lowp vec4 vColor, highp float vStart, highp float vEnd)
+{
+	lowp float d = distance(coord, vec2(vCenter.x, vCenter.y));
+	lowp float percent = smoothstep(vStart, vEnd, d);
+	return vec4(vColor.rgb, percent*vColor.a);
+}</string>
+			<key>prefix</key>
+			<string>inputColor = vignette(inputColor, textureCoordinate, vignetteCenter, vignetteColor, vignetteStart, vignetteEnd);</string>
+			<key>prefix-blend</key>
+			<string>mediump vec4 v$i = vignetteBlend(inputColor, textureCoordinate, vignetteCenter, vignetteColor, vignetteStart, vignetteEnd);</string>
+			<key>uniforms</key>
+			<string>vignette</string>
+		</dict>
+	</dict>
+	<key>orders</key>
+	<dict>
+		<key>specials</key>
+		<array>
+			<string>liney</string>
+		</array>
+	</dict>
+	<key>specials</key>
+	<dict>
+		<key>liney</key>
+		<dict>
+			<key>background-color</key>
+			<string>000000</string>
+			<key>color</key>
+			<string>ffffff</string>
+			<key>featured</key>
+			<true/>
+			<key>fill_mode</key>
+			<integer>0</integer>
+			<key>image_url</key>
+			<string></string>
+			<key>name</key>
+			<string>Liney Love</string>
+			<key>original_fileurl</key>
+			<string></string>
+			<key>presets</key>
+			<array/>
+			<key>preview_url</key>
+			<string></string>
+			<key>primary_tag_name</key>
+			<string>Abstract</string>
+			<key>requiresCompleteReload</key>
+			<true/>
+			<key>shader</key>
+			<dict>
+				<key>functions</key>
+				<dict>
+					<key>mrand</key>
+					<string>lowp float mrand(lowp vec2 co){
+  return fract(sin(dot(co.xy ,vec2(92.,80.))) + 
+                  cos(dot(co.xy ,vec2(41.,62.))) * 5.1);
+}</string>
+				</dict>
+				<key>line</key>
+				<string>//outputColor = %%previousTextureColor%%;</string>
+				<key>main-template</key>
+				<string>mediump vec4 %%textureColor%% = texture2D(%%inputTexture%%, %%textureCoordinate%%.xy+rndc*0.05);</string>
+				<key>mains</key>
+				<dict>
+					<key>rndc</key>
+					<string>// shader main: %%index%%  |  %%inputIndex%%
+lowp vec2 rndc = vec2(mrand(textureCoordinate.xy),mrand(textureCoordinate.xy));</string>
+				</dict>
+			</dict>
+			<key>stretch_mode</key>
+			<integer>0</integer>
+			<key>tags</key>
+			<dict/>
+			<key>thumb_url</key>
+			<string></string>
+			<key>vector</key>
+			<string></string>
+		</dict>
+	</dict>
+	<key>uniforms</key>
+	<dict>
+		<key>background</key>
+		<string>uniform mediump vec4 backgroundColorUniform$i;</string>
+		<key>brightestAndDarkest</key>
+		<string>uniform lowp float brightest;
+uniform lowp float darkest;</string>
+		<key>brightness</key>
+		<string>uniform lowp float brightness$i;</string>
+		<key>cbBlue</key>
+		<string>uniform highp float cbBlue$i;</string>
+		<key>cbGreen</key>
+		<string>uniform highp float cbGreen$i;</string>
+		<key>cbRed</key>
+		<string>uniform highp float cbRed$i;</string>
+		<key>colorbalance</key>
+		<string> uniform highp vec3 colorbalance$i;</string>
+		<key>contrast</key>
+		<string>uniform lowp float contrast$i;</string>
+		<key>exposure</key>
+		<string>uniform lowp float exposure$i;</string>
+		<key>false</key>
+		<string>uniform vec3 fdark$i;
+ uniform vec3 flight$i;</string>
+		<key>foreground</key>
+		<string>uniform mediump vec4 foregroundColorUniform$i;</string>
+		<key>fullscale</key>
+		<string>uniform lowp float fullScale;</string>
+		<key>gamma</key>
+		<string>uniform lowp float gamma$i;</string>
+		<key>grain</key>
+		<string>uniform lowp float grainAlpha;
+uniform lowp float grainTime;
+uniform lowp float grainThreshold;
+uniform mediump vec4 grainColor;</string>
+		<key>haze</key>
+		<string>uniform lowp float haze$i;</string>
+		<key>hazeSlope</key>
+		<string>uniform highp float hazeSlope$i;</string>
+		<key>highlight</key>
+		<string>uniform lowp float highlight$i;</string>
+		<key>highlightIntensity</key>
+		<string>uniform lowp float highlightIntensity$i;
+uniform mediump vec4 highlightTint$i;</string>
+		<key>hsb</key>
+		<string>uniform lowp mat4 hsb$i; uniform lowp float hsbintensity$i;</string>
+		<key>intensity</key>
+		<string>uniform lowp float intensityUniform$i;</string>
+		<key>levels</key>
+		<string> uniform mediump vec3 lvlmin$i;
+ uniform mediump vec3 lvlmid$i;
+ uniform mediump vec3 lvlmax$i;
+ uniform mediump vec3 lvlmino$i;
+ uniform mediump vec3 lvlmaxo$i;</string>
+		<key>matrix</key>
+		<string>uniform lowp mat4 colorMatrix$i; uniform lowp float matintensity$i;</string>
+		<key>saturation</key>
+		<string>uniform lowp float saturation$i;</string>
+		<key>shadow</key>
+		<string>uniform lowp float shadow$i;</string>
+		<key>shadowIntensity</key>
+		<string>uniform lowp float shadowIntensity$i;
+uniform mediump vec4 shadowTint$i;</string>
+		<key>skin</key>
+		<string>uniform highp float skinToneAdjust$i;
+uniform mediump float skinHue$i;
+uniform mediump float skinHueThreshold$i;
+uniform mediump float skinMaxHueShift$i;
+uniform mediump float skinMaxSaturationShift$i;
+uniform int skinUpperSkinToneColor$i;</string>
+		<key>temp</key>
+		<string>uniform lowp float temp$i;</string>
+		<key>tiltshift</key>
+		<string>uniform highp float topFocusLevel$i;
+uniform highp float bottomFocusLevel$i;
+uniform highp float focusFallOffRate$i;</string>
+		<key>tint</key>
+		<string>uniform lowp float tint$i;</string>
+		<key>vibrance</key>
+		<string>uniform lowp float vibrance$i;</string>
+		<key>vignette</key>
+		<string>uniform lowp vec2 vignetteCenter;
+uniform lowp vec4 vignetteColor;
+uniform highp float vignetteStart;
+uniform highp float vignetteEnd;</string>
+	</dict>
+</dict>
+</plist>

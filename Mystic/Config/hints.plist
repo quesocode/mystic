@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>intro-first</key>
+	<integer>0</integer>
+	<key>intro-next</key>
+	<integer>2</integer>
+	<key>intro</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string></string>
+			<key>text</key>
+			<string>Double Tap LIBRARY to quickly start
+editing your last shot</string>
+			<key>link</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string></string>
+			<key>text</key>
+			<string>Check SNAP SHOTS for the latest
+from the Land of Mystic*</string>
+			<key>link</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>UPDATES</string>
+			<key>text</key>
+			<string>Check out the latest updates!</string>
+			<key>link</key>
+			<string>http://mysti.ch</string>
+		</dict>
+	</array>
+</dict>
+</plist>

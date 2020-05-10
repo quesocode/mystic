@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MysticSettingsController">
+            <connections>
+                <outlet property="navBar" destination="hOn-Uc-pOW" id="dGo-dZ-MfV"/>
+                <outlet property="tableView" destination="0Oy-mQ-yJH" id="xRN-fb-UgI"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="MysticClearView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Oy-mQ-yJH">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="vnS-Xx-1KZ"/>
+                        <outlet property="delegate" destination="-1" id="1iQ-We-v95"/>
+                    </connections>
+                </tableView>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOn-Uc-pOW" customClass="MysticNavigationBar">
+                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                    <items>
+                        <navigationItem title="Title" id="O0c-vv-RuU"/>
+                    </items>
+                </navigationBar>
+            </subviews>
+            <constraints>
+                <constraint firstItem="hOn-Uc-pOW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2Tb-d4-txi"/>
+                <constraint firstItem="0Oy-mQ-yJH" firstAttribute="bottom" secondItem="hOn-Uc-pOW" secondAttribute="top" id="Bqp-LN-dPa"/>
+                <constraint firstItem="0Oy-mQ-yJH" firstAttribute="trailing" secondItem="hOn-Uc-pOW" secondAttribute="trailing" id="L9L-0Z-PVN"/>
+                <constraint firstItem="0Oy-mQ-yJH" firstAttribute="leading" secondItem="hOn-Uc-pOW" secondAttribute="leading" id="orD-1M-OVL"/>
+                <constraint firstItem="0Oy-mQ-yJH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sbK-qv-weh"/>
+                <constraint firstAttribute="trailing" secondItem="hOn-Uc-pOW" secondAttribute="trailing" id="tDt-S7-zkv"/>
+                <constraint firstAttribute="bottom" secondItem="hOn-Uc-pOW" secondAttribute="bottom" id="xHi-V2-HRN"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

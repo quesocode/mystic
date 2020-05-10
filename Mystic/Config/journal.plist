@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>sections</key>
+	<array>
+		<dict>
+			<key>items</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>In the beginning</string>
+					<key>description</key>
+					<string>Basic description goes here</string>
+					<key>image</key>
+					<string>http://backstage.mysti.ch/journal/images/1.jpg</string>
+					<key>author</key>
+					<string>Mystic</string>
+					<key>authorUrl</key>
+					<string>http://mysti.ch</string>
+					<key>link</key>
+					<string>http://mysti.ch/snapshots/1</string>
+					<key>blocks</key>
+					<array>
+						<dict>
+							<key>type</key>
+							<string>image</string>
+							<key>image</key>
+							<string>http://backstage.mysti.ch/journal/images/1.jpg</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>text</string>
+							<key>text</key>
+							<string>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>NATIVE SOUL
+Mystic&apos;s Sara Delight is branching out</string>
+					<key>description</key>
+					<string>Basic description goes here</string>
+					<key>image</key>
+					<string>http://backstage.mysti.ch/journal/images/2.jpg</string>
+					<key>author</key>
+					<string>Mystic</string>
+					<key>authorUrl</key>
+					<string>http://mysti.ch</string>
+					<key>link</key>
+					<string>http://mysti.ch/snapshots/2</string>
+					<key>blocks</key>
+					<array>
+						<dict>
+							<key>type</key>
+							<string>image</string>
+							<key>image</key>
+							<string>http://backstage.mysti.ch/journal/images/2.jpg</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>text</string>
+							<key>text</key>
+							<string>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>image</string>
+							<key>image</key>
+							<string>http://backstage.mysti.ch/journal/images/2.jpg</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>text</string>
+							<key>text</key>
+							<string>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>VERSION 2
+TESTING BEGINS</string>
+					<key>description</key>
+					<string>Basic description goes here</string>
+					<key>image</key>
+					<string>http://backstage.mysti.ch/journal/images/3.jpg</string>
+					<key>author</key>
+					<string>Mystic</string>
+					<key>authorUrl</key>
+					<string>http://mysti.ch</string>
+					<key>link</key>
+					<string>http://mysti.ch/snapshots/3</string>
+					<key>blocks</key>
+					<array>
+						<dict>
+							<key>type</key>
+							<string>image</string>
+							<key>image</key>
+							<string>http://backstage.mysti.ch/journal/images/3.jpg</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>text</string>
+							<key>text</key>
+							<string>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>SPRING
+STARTS TO
+SPREAD HER WINGS</string>
+					<key>description</key>
+					<string>Basic description goes here</string>
+					<key>image</key>
+					<string>http://backstage.mysti.ch/journal/images/4.jpg</string>
+					<key>author</key>
+					<string>Mystic</string>
+					<key>authorUrl</key>
+					<string>http://mysti.ch</string>
+					<key>link</key>
+					<string>http://mysti.ch/snapshots/4</string>
+					<key>blocks</key>
+					<array>
+						<dict>
+							<key>type</key>
+							<string>image</string>
+							<key>image</key>
+							<string>http://backstage.mysti.ch/journal/images/4.jpg</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>text</string>
+							<key>text</key>
+							<string>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>A STORY ABOUT A FORGOTTEN FARM</string>
+					<key>description</key>
+					<string>Basic description goes here</string>
+					<key>image</key>
+					<string>http://backstage.mysti.ch/journal/images/5.jpg</string>
+					<key>author</key>
+					<string>Mystic</string>
+					<key>authorUrl</key>
+					<string>http://mysti.ch</string>
+					<key>link</key>
+					<string>http://mysti.ch/snapshots/5</string>
+					<key>blocks</key>
+					<array>
+						<dict>
+							<key>type</key>
+							<string>image</string>
+							<key>image</key>
+							<string>http://backstage.mysti.ch/journal/images/5.jpg</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>text</string>
+							<key>text</key>
+							<string>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>THE FORGOTTEN FARM
+PART II</string>
+					<key>description</key>
+					<string>Basic description goes here</string>
+					<key>image</key>
+					<string>http://backstage.mysti.ch/journal/images/6.jpg</string>
+					<key>author</key>
+					<string>Mystic</string>
+					<key>authorUrl</key>
+					<string>http://mysti.ch</string>
+					<key>link</key>
+					<string>http://mysti.ch/snapshots/6</string>
+					<key>blocks</key>
+					<array>
+						<dict>
+							<key>type</key>
+							<string>image</string>
+							<key>image</key>
+							<string>http://backstage.mysti.ch/journal/images/1.jpg</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>text</string>
+							<key>text</key>
+							<string>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>THE BLACK HILLS</string>
+					<key>description</key>
+					<string>Basic description goes here</string>
+					<key>image</key>
+					<string>http://backstage.mysti.ch/journal/images/7.jpg</string>
+					<key>author</key>
+					<string>Mystic</string>
+					<key>authorUrl</key>
+					<string>http://mysti.ch</string>
+					<key>link</key>
+					<string>http://mysti.ch/snapshots/7</string>
+					<key>blocks</key>
+					<array>
+						<dict>
+							<key>type</key>
+							<string>image</string>
+							<key>image</key>
+							<string>http://backstage.mysti.ch/journal/images/1.jpg</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>text</string>
+							<key>text</key>
+							<string>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>VISION IS SOMETHING ONE CANNOT LIVE WITHOUT</string>
+					<key>description</key>
+					<string>Basic description goes here</string>
+					<key>image</key>
+					<string>http://backstage.mysti.ch/journal/images/8.jpg</string>
+					<key>author</key>
+					<string>Mystic</string>
+					<key>authorUrl</key>
+					<string>http://mysti.ch</string>
+					<key>link</key>
+					<string>http://mysti.ch/snapshots/8</string>
+					<key>blocks</key>
+					<array>
+						<dict>
+							<key>type</key>
+							<string>image</string>
+							<key>image</key>
+							<string>http://backstage.mysti.ch/journal/images/1.jpg</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>text</string>
+							<key>text</key>
+							<string>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>CREATION STARTS WITH DIRTY HANDS</string>
+					<key>description</key>
+					<string>Basic description goes here</string>
+					<key>image</key>
+					<string>http://backstage.mysti.ch/journal/images/9.jpg</string>
+					<key>author</key>
+					<string>Mystic</string>
+					<key>authorUrl</key>
+					<string>http://mysti.ch</string>
+					<key>link</key>
+					<string>http://mysti.ch/snapshots/9</string>
+					<key>blocks</key>
+					<array>
+						<dict>
+							<key>type</key>
+							<string>image</string>
+							<key>image</key>
+							<string>http://backstage.mysti.ch/journal/images/1.jpg</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>text</string>
+							<key>text</key>
+							<string>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>THE LEGACY OF ROCK N ROLL</string>
+					<key>description</key>
+					<string>Basic description goes here</string>
+					<key>image</key>
+					<string>http://backstage.mysti.ch/journal/images/10.jpg</string>
+					<key>author</key>
+					<string>Mystic</string>
+					<key>authorUrl</key>
+					<string>http://mysti.ch</string>
+					<key>link</key>
+					<string>http://mysti.ch/snapshots/10</string>
+					<key>blocks</key>
+					<array>
+						<dict>
+							<key>type</key>
+							<string>image</string>
+							<key>image</key>
+							<string>http://backstage.mysti.ch/journal/images/1.jpg</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>text</string>
+							<key>text</key>
+							<string>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>ON THE ROAD AGAIN
+LIVING LEGENDS</string>
+					<key>description</key>
+					<string>Basic description goes here</string>
+					<key>image</key>
+					<string>http://backstage.mysti.ch/journal/images/11.jpg</string>
+					<key>author</key>
+					<string>Mystic</string>
+					<key>authorUrl</key>
+					<string>http://mysti.ch</string>
+					<key>link</key>
+					<string>http://mysti.ch/snapshots/11</string>
+					<key>blocks</key>
+					<array>
+						<dict>
+							<key>type</key>
+							<string>image</string>
+							<key>image</key>
+							<string>http://backstage.mysti.ch/journal/images/1.jpg</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>text</string>
+							<key>text</key>
+							<string>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>THE POWER OF PICTURE
+PROVIDE PURPOSE</string>
+					<key>description</key>
+					<string>Basic description goes here</string>
+					<key>image</key>
+					<string>http://backstage.mysti.ch/journal/images/12.jpg</string>
+					<key>author</key>
+					<string>Mystic</string>
+					<key>authorUrl</key>
+					<string>http://mysti.ch</string>
+					<key>link</key>
+					<string>http://mysti.ch/snapshots/12</string>
+					<key>blocks</key>
+					<array>
+						<dict>
+							<key>type</key>
+							<string>image</string>
+							<key>image</key>
+							<string>http://backstage.mysti.ch/journal/images/1.jpg</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>text</string>
+							<key>text</key>
+							<string>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>2014
+THE YEAR OF THE HORSE</string>
+					<key>description</key>
+					<string>Basic description goes here</string>
+					<key>image</key>
+					<string>http://backstage.mysti.ch/journal/images/13.jpg</string>
+					<key>author</key>
+					<string>Mystic</string>
+					<key>authorUrl</key>
+					<string>http://mysti.ch</string>
+					<key>link</key>
+					<string>http://mysti.ch/snapshots/13</string>
+					<key>blocks</key>
+					<array>
+						<dict>
+							<key>type</key>
+							<string>image</string>
+							<key>image</key>
+							<string>http://backstage.mysti.ch/journal/images/1.jpg</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>text</string>
+							<key>text</key>
+							<string>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>MIRRORS OF THE DEEP</string>
+					<key>description</key>
+					<string>Basic description goes here</string>
+					<key>image</key>
+					<string>http://backstage.mysti.ch/journal/images/14.jpg</string>
+					<key>author</key>
+					<string>Mystic</string>
+					<key>authorUrl</key>
+					<string>http://mysti.ch</string>
+					<key>link</key>
+					<string>http://mysti.ch/snapshots/14</string>
+					<key>blocks</key>
+					<array>
+						<dict>
+							<key>type</key>
+							<string>image</string>
+							<key>image</key>
+							<string>http://backstage.mysti.ch/journal/images/1.jpg</string>
+						</dict>
+						<dict>
+							<key>type</key>
+							<string>text</string>
+							<key>text</key>
+							<string>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

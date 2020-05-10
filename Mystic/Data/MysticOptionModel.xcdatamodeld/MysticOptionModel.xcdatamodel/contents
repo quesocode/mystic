@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="MysticGroup" representedClassName="MysticGroup" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="layers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MysticLayer" inverseName="group" inverseEntity="MysticLayer" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MysticTag" inverseName="group" inverseEntity="MysticTag" syncable="YES"/>
+    </entity>
+    <entity name="MysticLayer" representedClassName="MysticLayer" syncable="YES">
+        <attribute name="alphaMask" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="alphaMask_file" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="alphaMask_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="anchor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="blend" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="colors" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="control" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="control_file" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="controlImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="controlImage_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email_bcc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email_cc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email_html" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="email_subject" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email_to" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="facebook" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="featured" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="file" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fill_mode" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="folder" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hashtags" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="instagram" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="message_link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newthumb" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="original" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pinterest" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="preset_blending" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="preset_intensity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="preset_invert" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="preset_sunshine" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="preview" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="rating_total" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="rating_votes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sample" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stretch_insets" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stretch_mode" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumb" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumb_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="twitter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="uses" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MysticGroup" inverseName="layers" inverseEntity="MysticGroup" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="MysticTag" inverseName="layers" inverseEntity="MysticTag" syncable="YES"/>
+    </entity>
+    <entity name="MysticTag" representedClassName="MysticTag" syncable="YES">
+        <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="available" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="control" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="control_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="isPack" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="tag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MysticGroup" inverseName="tags" inverseEntity="MysticGroup" syncable="YES"/>
+        <relationship name="layers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MysticLayer" inverseName="tags" inverseEntity="MysticLayer" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="MysticLayer" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="MysticTag" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="MysticGroup" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

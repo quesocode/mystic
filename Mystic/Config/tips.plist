@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>faq</key>
+	<dict>
+		<key>customsize</key>
+		<dict>
+			<key>category</key>
+			<string>basic</string>
+			<key>description</key>
+			<string>this is the description</string>
+			<key>html</key>
+			<true/>
+			<key>image</key>
+			<string>http://173.199.143.137/~gsr4you/wp-content/uploads/2013/08/faq_small-copy.png</string>
+			<key>related</key>
+			<array/>
+			<key>tags</key>
+			<array>
+				<string>tag1</string>
+				<string>tag1</string>
+			</array>
+			<key>title</key>
+			<string>How do I set a custom size?</string>
+			<key>video</key>
+			<string></string>
+		</dict>
+		<key>customsize 2</key>
+		<dict>
+			<key>category</key>
+			<string>basic</string>
+			<key>description</key>
+			<string>this is the description</string>
+			<key>html</key>
+			<true/>
+			<key>image</key>
+			<string>http://173.199.143.137/~gsr4you/wp-content/uploads/2013/08/faq_small-copy.png</string>
+			<key>related</key>
+			<array/>
+			<key>tags</key>
+			<array>
+				<string>tag1</string>
+				<string>tag1</string>
+			</array>
+			<key>title</key>
+			<string>How do I set a custom size?</string>
+			<key>video</key>
+			<string></string>
+		</dict>
+		<key>exposure</key>
+		<dict>
+			<key>category</key>
+			<string>basic</string>
+			<key>description</key>
+			<string>this is the description</string>
+			<key>html</key>
+			<true/>
+			<key>image</key>
+			<string>http://173.199.143.137/~gsr4you/wp-content/uploads/2013/08/faq_small-copy.png</string>
+			<key>related</key>
+			<array/>
+			<key>tags</key>
+			<array>
+				<string>tag1</string>
+				<string>tag1</string>
+			</array>
+			<key>title</key>
+			<string>How do I set a custom size?</string>
+			<key>video</key>
+			<string></string>
+		</dict>
+		<key>exposure 2</key>
+		<dict>
+			<key>category</key>
+			<string>basic</string>
+			<key>description</key>
+			<string>this is the description</string>
+			<key>html</key>
+			<true/>
+			<key>image</key>
+			<string>http://173.199.143.137/~gsr4you/wp-content/uploads/2013/08/faq_small-copy.png</string>
+			<key>related</key>
+			<array/>
+			<key>tags</key>
+			<array>
+				<string>tag1</string>
+				<string>tag1</string>
+			</array>
+			<key>title</key>
+			<string>How do I set a custom size?</string>
+			<key>video</key>
+			<string></string>
+		</dict>
+	</dict>
+	<key>tips</key>
+	<dict>
+		<key>magicbutton</key>
+		<dict>
+			<key>title</key>
+			<string>Tap here to try out different looks</string>
+		</dict>
+		<key>trybackdrops</key>
+		<dict>
+			<key>title</key>
+			<string>Or try using one of our custom backdrops</string>
+		</dict>
+		<key>cropsize</key>
+		<dict>
+			<key>title</key>
+			<string>Pick from common sizes</string>
+		</dict>
+		<key>editlayer</key>
+		<dict>
+			<key>title</key>
+			<string>Tap the layer again to edit it</string>
+		</dict>
+		<key>pickeraser</key>
+		<dict>
+			<key>title</key>
+			<string>Tap here to pick or edit your eraser</string>
+		</dict>
+		<key>addlayer</key>
+		<dict>
+			<key>title</key>
+			<string>Tap Here to Add Effects</string>
+		</dict>
+		<key>recolor</key>
+		<dict>
+			<key>description</key>
+			<string>skldjflksjdflksjdflksjdf</string>
+		</dict>
+		<key>pickbrush</key>
+		<dict>
+			<key>title</key>
+			<string>Tap here to pick or edit your brush</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

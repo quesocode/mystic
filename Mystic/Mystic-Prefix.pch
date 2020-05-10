@@ -1,0 +1,258 @@
+//
+// Prefix header for all source files of the 'Mystic' target in the 'Mystic' project
+//
+
+
+#import <Availability.h>
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iPhone SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <CoreData/CoreData.h>
+#import <CocoaLumberjack/CocoaLumberjack.h>
+
+
+
+
+
+
+
+
+#endif
+#else
+#ifdef __OBJC__
+#import <Cocoa/Cocoa.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <CoreServices/CoreServices.h>
+#endif
+#endif
+
+#define LOG_LEVEL_DEF ddLogLevel
+#define LOG_ASYNC_ENABLED YES
+
+
+
+
+
+
+/*
+ *  System Versioning Preprocessor Macros
+ */
+
+
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+#define iOSVersion9()  ([[[UIDevice currentDevice] systemVersion] compare:9.1 options:NSNumericSearch] != NSOrderedAscending)
+
+#define iOSVersion(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+
+//#   define XCODE_COLORS "XcodeColors"
+#undef DDLogError
+#undef DDLogWarn
+#undef DDLogInfo
+#undef DDLogDebug
+#undef DDLogSuccess
+#undef DDLogVerbose
+
+#ifndef DEBUG
+#   define DLog(...) /* NSLog debug wrapper */
+#   define QLog(...)
+#   define LINE_COLOR  @""
+#   define LOG_BG_COLOR  @""
+#   define LOG_KEY_COLOR  @""
+#   define LOG_VALUE_COLOR  @""
+#   define LOG_HEADER_BG_COLOR @""
+#   define LOG_HEADER_FG_COLOR  @""
+#   define LOG_RED_COLOR    @""
+#   define LOG_BLUE_COLOR    @""
+#   define LOG_YELLOW_COLOR    @""
+#   define LOG_GREEN_COLOR    @""
+#   define LOG_HIDDEN_COLOR    @""
+#   define LOG_PURPLE_COLOR     @""
+#   define DDLogFatal(frmt, ...)
+#   define DDLogError(frmt, ...)
+#   define DDLogWarn(frmt, ...)
+#   define DDLogInfo(frmt, ...)
+#   define DDLogDebug(frmt, ...)
+#   define DDLogHidden(frmt, ...)
+#   define DDLogRender(frmt, ...)
+#   define DDLogMemory(frmt, ...)
+#   define DDLogSuccess(frmt, ...)
+
+#   define DLogFatal(frmt, ...)
+#   define DLogError(frmt, ...)
+#   define DLogWarn(frmt, ...)
+#   define DLogInfo(frmt, ...)
+#   define DLogDebug(frmt, ...)
+#   define DLogHidden(frmt, ...)
+#   define DLogRender(frmt, ...)
+#   define DLogMemory(frmt, ...)
+#   define DLogSuccess(frmt, ...)
+
+#   define XCODE_COLORS_ESCAPE  @""
+#   define XCODE_COLORS_RESET_FG  XCODE_COLORS_ESCAPE @"" // Clear any foreground color
+#   define XCODE_COLORS_RESET_BG  XCODE_COLORS_ESCAPE @"" // Clear any background color
+#   define XCODE_COLORS_RESET     XCODE_COLORS_ESCAPE @""   // Clear any foreground or background color
+
+#endif
+
+#define MYSTIC_LOG_COLORS 1
+
+#ifndef DLog
+
+
+    #ifndef MYSTIC_LOG_COLORS
+
+    //#   define LINE_COLOR  @"fg81,81,80; "
+    #   define LINE_COLOR  @"fg0,0,0;"
+
+    #   define LOG_BG_COLOR  @"bg28,28,27;"
+    #   define LOG_HEADER_BG_COLOR  @"bg22,22,21;"
+    #   define LOG_HEADER_FG_COLOR  @"bg99,99,98;"
+
+    #   define LOG_KEY_COLOR  @"fg145,143,141;"
+    #   define LOG_VALUE_COLOR  @"fg94,197,128;"
+    #   define LOG_RED_COLOR    @"fg227,76,76;"
+    #   define LOG_GREEN_COLOR    @"fg117,178,21;"
+
+    #   define LOG_BLUE_COLOR    @"fg0,204,192;"
+    #   define LOG_YELLOW_COLOR    @"fg241,234,224;"
+    #   define LOG_PURPLE_COLOR    @"fg209,23,154;"
+    #   define LOG_HIDDEN_COLOR     @"fg80,80,79;"
+
+    #else 
+
+
+    #   define LINE_COLOR  @""
+
+    #   define LOG_BG_COLOR  @""
+    #   define LOG_HEADER_BG_COLOR  @""
+    #   define LOG_HEADER_FG_COLOR  @""
+
+    #   define LOG_KEY_COLOR  @""
+    #   define LOG_VALUE_COLOR  @""
+    #   define LOG_RED_COLOR    @""
+    #   define LOG_GREEN_COLOR    @""
+
+    #   define LOG_BLUE_COLOR    @""
+    #   define LOG_YELLOW_COLOR    @""
+    #   define LOG_PURPLE_COLOR    @""
+    #   define LOG_HIDDEN_COLOR     @""
+
+
+
+    #endif
+
+    #define LOG_FLAG_FATAL   (1 << 0)  // 0...000001
+    #define LOG_FLAG_ERROR   (1 << 1)  // 0...000010
+    #define LOG_FLAG_WARN    (1 << 2)  // 0...000100
+    #define LOG_FLAG_INFO    (1 << 3)  // 0...010000
+    #define LOG_FLAG_DEBUG   (1 << 4)  // 0...100000
+    #define LOG_FLAG_SUCCESS   (1 << 5)  // 0...100000
+
+    #define LOG_FLAG_HIDDEN   (1 << 6)
+    #define LOG_FLAG_RENDER   (1 << 7)
+    #define LOG_FLAG_MEMORY   (1 << 8)
+
+
+    #define LOG_LEVEL_FATAL   (LOG_FLAG_FATAL)                     // 0...000001
+    #define LOG_LEVEL_ERROR   (LOG_FLAG_ERROR  | LOG_LEVEL_FATAL ) // 0...000011
+    #define LOG_LEVEL_WARN    (LOG_FLAG_WARN   | LOG_LEVEL_ERROR ) // 0...000111
+    #define LOG_LEVEL_INFO    (LOG_FLAG_INFO   | LOG_LEVEL_WARN) // 0...011111
+    #define LOG_LEVEL_DEBUG   (LOG_FLAG_DEBUG  | LOG_LEVEL_INFO  ) // 0...111111
+    #define LOG_LEVEL_SUCCESS   (LOG_FLAG_SUCCESS  | LOG_LEVEL_DEBUG  ) // 0...111111
+
+    #define LOG_LEVEL_HIDDEN   (LOG_FLAG_HIDDEN  | LOG_LEVEL_SUCCESS  ) // 0...111111
+    #define LOG_LEVEL_RENDER   (LOG_FLAG_RENDER  | LOG_LEVEL_HIDDEN  ) // 0...111111
+    #define LOG_LEVEL_MEMORY   (LOG_FLAG_MEMORY  | LOG_LEVEL_RENDER  ) // 0...111111
+
+
+
+
+    #define     ddLogLevel LOG_LEVEL_MEMORY
+
+    #define DDLogFatal(frmt, ...)   LOG_MAYBE(NO,  ddLogLevel, LOG_FLAG_FATAL,  0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+    #define DDLogError(frmt, ...)   LOG_MAYBE(NO,  ddLogLevel, LOG_FLAG_ERROR,  0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+    #define DDLogWarn(frmt, ...)    LOG_MAYBE(NO, ddLogLevel, LOG_FLAG_WARN,   0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+    #define DDLogInfo(frmt, ...)    LOG_MAYBE(YES, ddLogLevel, LOG_FLAG_INFO,   0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+    #define DDLogDebug(frmt, ...)   LOG_MAYBE(NO, ddLogLevel, LOG_FLAG_DEBUG,  0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+    #define DDLogSuccess(frmt, ...)   LOG_MAYBE(NO,  ddLogLevel, LOG_FLAG_SUCCESS,  0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+
+    #define DDLogHidden(frmt, ...)   LOG_MAYBE(YES,  ddLogLevel, LOG_FLAG_HIDDEN,  0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+    #define DDLogRender(frmt, ...)   LOG_MAYBE(YES,  ddLogLevel, LOG_FLAG_RENDER,  0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+    #define DDLogMemory(frmt, ...)   LOG_MAYBE(NO,  ddLogLevel, LOG_FLAG_MEMORY,  0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+
+    #define DLogFatal(frmt, ...)   LOG_MAYBE(NO,  ddLogLevel, LOG_FLAG_FATAL,  0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+    #define DLogError(frmt, ...)   LOG_MAYBE(NO,  ddLogLevel, LOG_FLAG_ERROR,  0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+    #define DLogWarn(frmt, ...)    LOG_MAYBE(NO, ddLogLevel, LOG_FLAG_WARN,   0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+    #define DLogInfo(frmt, ...)    LOG_MAYBE(YES, ddLogLevel, LOG_FLAG_INFO,   0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+    #define DLogDebug(frmt, ...)   LOG_MAYBE(NO, ddLogLevel, LOG_FLAG_DEBUG,  0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+    #define DLogSuccess(frmt, ...)   LOG_MAYBE(NO,  ddLogLevel, LOG_FLAG_SUCCESS,  0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+    #define DLogHidden(frmt, ...)   LOG_MAYBE(YES,  ddLogLevel, LOG_FLAG_HIDDEN,  0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+    #define DLogRender(frmt, ...)   LOG_MAYBE(YES,  ddLogLevel, LOG_FLAG_RENDER,  0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+    #define DLogMemory(frmt, ...)   LOG_MAYBE(NO,  ddLogLevel, LOG_FLAG_MEMORY,  0, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+
+
+// normal DLog
+
+#define DLog(...) NSLog(__VA_ARGS__)
+#define XCODE_COLORS_ESCAPE_MAC @""
+#   define XCODE_COLORS_ESCAPE_IOS @""
+#if TARGET_OS_IPHONE
+#   define XCODE_COLORS_ESCAPE  XCODE_COLORS_ESCAPE_IOS
+#else
+#   define XCODE_COLORS_ESCAPE  XCODE_COLORS_ESCAPE_MAC
+#endif
+
+#   define XCODE_COLORS_RESET_FG  XCODE_COLORS_ESCAPE @"" // Clear any foreground color
+#   define XCODE_COLORS_RESET_BG  XCODE_COLORS_ESCAPE @"" // Clear any background color
+#   define XCODE_COLORS_RESET     XCODE_COLORS_ESCAPE @""   // Clear any foreground or background color
+
+
+//#define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+ //   #   define DLog(...) DDLogInfo(__VA_ARGS__)
+
+    #ifndef XCODE_COLORS_ESCAPE_MAC
+
+        #   define XCODE_COLORS_ESCAPE_MAC @"\033["
+        #   define XCODE_COLORS_ESCAPE_IOS @"\033["
+        #if TARGET_OS_IPHONE
+            #   define XCODE_COLORS_ESCAPE  XCODE_COLORS_ESCAPE_IOS
+        #else
+            #   define XCODE_COLORS_ESCAPE  XCODE_COLORS_ESCAPE_MAC
+        #endif
+
+        #   define XCODE_COLORS_RESET_FG  XCODE_COLORS_ESCAPE @"fg;" // Clear any foreground color
+        #   define XCODE_COLORS_RESET_BG  XCODE_COLORS_ESCAPE @"bg;" // Clear any background color
+        #   define XCODE_COLORS_RESET     XCODE_COLORS_ESCAPE @";"   // Clear any foreground or background color
+
+    #endif
+#endif
+
+#ifndef RemoteLog
+#   define RemoteLog DLog
+#endif
+
+#ifndef QLog
+#   define QLog(fmt, ...) { NSString *newFormat = (@"" fmt); if([newFormat hasPrefix:@": "]) newFormat = [NSString stringWithFormat:@"\n%s  %@", __PRETTY_FUNCTION__, [newFormat substringFromIndex:2]]; if([newFormat hasPrefix:@":# "]) newFormat = [NSString stringWithFormat:@"\n%s[Line %d]  %@", __PRETTY_FUNCTION__, __LINE__, [newFormat substringFromIndex:3]]; DLog(newFormat, ##__VA_ARGS__); }
+#endif
+
+
+
+
+
+
+
+
+

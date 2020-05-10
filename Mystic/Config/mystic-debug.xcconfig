@@ -1,0 +1,12 @@
+//
+//  mystic-debug.xcconfig
+//  Mystic
+//
+//  Created by Me on 3/25/15.
+//  Copyright (c) 2015 Blackpulp. All rights reserved.
+//
+#include "Pods/Target Support Files/Pods-Mystic/Pods-Mystic.debug.xcconfig"
+#include "buildnumber.xcconfig"
+#include "versionnumber.xcconfig"
+
+BUILD_TYPE=Debug

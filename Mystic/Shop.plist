@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ch.mysti.barriopack</key>
+	<dict>
+		<key>identifier</key>
+		<string>ch.mysti.barriopack</string>
+		<key>price</key>
+		<real>1.99</real>
+		<key>title</key>
+		<string>Animal Rescue Donation Pack</string>
+		<key>url</key>
+		<string>http://mysti.ch/product/animalrescue</string>
+		<key>details</key>
+		<string>Barrio Dogs is a growing, grassroots, non-profit organization based in Houston, Texas with an emphasis on education and in raising awareness on proper animal care in the low income communities. We are an all-volunteer organization demonstrating what can be done when everyday people become empowered. Because there is a huge overpopulation of animals in these inner city communities, greater emphasis must be placed on spay and neutering. Reducing the numbers of unwanted animals is vital. With your help, Barrio Dogs seeks to effectively change these communities, without a full-time staff or a physical building. Everyday people doing incredible work.</string>
+		<key>image</key>
+		<string>product_animalrescue.jpg</string>
+		<key>featured</key>
+		<true/>
+		<key>charity</key>
+		<true/>
+		<key>effects</key>
+		<array>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+		</array>
+		<key>instructions</key>
+		<string>instructions go here</string>
+		<key>summary</key>
+		<string>summary goes here</string>
+	</dict>
+	<key>ch.mysti.farmaid</key>
+	<dict>
+		<key>summary</key>
+		<string>summary goes here</string>
+		<key>instructions</key>
+		<string>instructions go here</string>
+		<key>effects</key>
+		<array>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+		</array>
+		<key>identifier</key>
+		<string>ch.mysti.farmaid</string>
+		<key>price</key>
+		<real>1.99</real>
+		<key>title</key>
+		<string>Farm Aid Donation Pack</string>
+		<key>url</key>
+		<string>http://mysti.ch/product/farmaid</string>
+		<key>details</key>
+		<string>Willie Nelson, Neil Young and John Mellencamp organized the first Farm Aid concert in 1985 to raise awareness about the loss of family farms and to raise funds to keep farm families on their land. Dave Matthews joined the Farm Aid Board of Directors in 2001. Farm Aid has raised more than $40 million to promote a strong and resilient family farm system of agriculture. Farm Aid is a nonprofit organization whose mission is to keep family farmers on their land.</string>
+		<key>image</key>
+		<string>product_farmaid.jpg</string>
+		<key>featured</key>
+		<true/>
+		<key>charity</key>
+		<true/>
+	</dict>
+	<key>ch.mysti.playforchange</key>
+	<dict>
+		<key>summary</key>
+		<string>summary goes here</string>
+		<key>instructions</key>
+		<string>instructions go here</string>
+		<key>effects</key>
+		<array>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+		</array>
+		<key>identifier</key>
+		<string>ch.mysti.playingforchange</string>
+		<key>price</key>
+		<real>1.99</real>
+		<key>title</key>
+		<string>Play For Change Charity Pack</string>
+		<key>url</key>
+		<string>http://mysti.ch/product/playforchange</string>
+		<key>details</key>
+		<string>THE PLAYING FOR CHANGE FOUNDATION IS DEDICATED TO CONNECTING THE WORLD THROUGH MUSIC BY PROVIDING RESOURCES TO MUSICIANS AND THEIR COMMUNITIES AROUND THE WORLD. http://playingforchange.org</string>
+		<key>image</key>
+		<string>product_play_change.jpg</string>
+		<key>featured</key>
+		<true/>
+		<key>charity</key>
+		<true/>
+	</dict>
+	<key>ch.mysti.momsnotes</key>
+	<dict>
+		<key>summary</key>
+		<string>summary goes here</string>
+		<key>instructions</key>
+		<string>instructions go here</string>
+		<key>effects</key>
+		<array>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+		</array>
+		<key>identifier</key>
+		<string>ch.mysti.momsnotes</string>
+		<key>price</key>
+		<real>1.99</real>
+		<key>title</key>
+		<string>Mom&apos;s Notes</string>
+		<key>url</key>
+		<string>http://mysti.ch/product/momsnotepad</string>
+		<key>details</key>
+		<string>More details to come for mom&apos;s notepad</string>
+		<key>image</key>
+		<string>product_moms-notepad.jpg</string>
+		<key>featured</key>
+		<true/>
+		<key>charity</key>
+		<false/>
+	</dict>
+	<key>ch.mysti.disasterreliefpack</key>
+	<dict>
+		<key>summary</key>
+		<string>summary goes here</string>
+		<key>instructions</key>
+		<string>instructions go here</string>
+		<key>effects</key>
+		<array>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+		</array>
+		<key>identifier</key>
+		<string>ch.mysti.disasterreliefpack</string>
+		<key>price</key>
+		<real>1.99</real>
+		<key>title</key>
+		<string>Disaster Relief Pack</string>
+		<key>details</key>
+		<string>Money goes to benefit disaster relief victims.</string>
+		<key>image</key>
+		<string>product_disasterrelief.jpg</string>
+		<key>url</key>
+		<string>http://mysti.ch/product/disasterrelief</string>
+		<key>featured</key>
+		<true/>
+		<key>charity</key>
+		<true/>
+	</dict>
+	<key>ch.mysti.americapack</key>
+	<dict>
+		<key>summary</key>
+		<string>summary goes here</string>
+		<key>instructions</key>
+		<string>instructions go here</string>
+		<key>effects</key>
+		<array>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+			<string>product_animalrescue.jpg</string>
+		</array>
+		<key>identifier</key>
+		<string>ch.mysti.americapack</string>
+		<key>price</key>
+		<real>1.99</real>
+		<key>title</key>
+		<string>America Pack</string>
+		<key>url</key>
+		<string>http://mysti.ch/product/america</string>
+		<key>details</key>
+		<string>More details to come for america</string>
+		<key>image</key>
+		<string>product_america.jpg</string>
+		<key>featured</key>
+		<true/>
+		<key>charity</key>
+		<false/>
+	</dict>
+</dict>
+</plist>

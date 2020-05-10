@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <navigationController toolbarHidden="NO" id="Tap-hU-izf" customClass="MysticNavigationViewController">
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+            <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="aXm-e1-3q2" customClass="MysticNavigationBar">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </navigationBar>
+            <viewControllers>
+                <viewController id="giY-7C-ml9" userLabel="Root View Controller">
+                    <navigationItem key="navigationItem" title="Item" id="yNS-aX-Exe"/>
+                </viewController>
+            </viewControllers>
+            <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="34V-hw-eoa" customClass="MysticNavigationToolbar">
+                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </toolbar>
+            <point key="canvasLocation" x="158" y="-197"/>
+        </navigationController>
+    </objects>
+</document>

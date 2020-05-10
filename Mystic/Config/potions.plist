@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>order</key>
+	<array/>
+	<key>potions</key>
+	<dict>
+		<key>potion1</key>
+		<dict>
+			<key>543210</key>
+			<array>
+				<dict>
+					<key>543211</key>
+					<integer>17</integer>
+					<key>543212</key>
+					<string>1191-lumberjack</string>
+					<key>543213</key>
+					<integer>1</integer>
+					<key>543214</key>
+					<dict>
+						<key>keys</key>
+						<array/>
+					</dict>
+				</dict>
+			</array>
+			<key>543218</key>
+			<string>/0-1-thumb__300x200.jpg</string>
+			<key>543219</key>
+			<string>{4096, 2713}</string>
+			<key>543220</key>
+			<array>
+				<dict>
+					<key>resized</key>
+					<string>0-smallpreview__1242x824.jpg</string>
+					<key>source</key>
+					<string>0-source__4096x2713.jpg</string>
+				</dict>
+				<dict>
+					<key>resized</key>
+					<string>0-1-smallpreview__1242x824.jpg</string>
+					<key>source</key>
+					<string>0-1-source__4096x2713.jpg</string>
+				</dict>
+			</array>
+			<key>543222</key>
+			<integer>1</integer>
+			<key>543223</key>
+			<integer>2</integer>
+			<key>543224</key>
+			<string>proj-4f60c6-3271d10-1-thumb__300x200.jpg</string>
+			<key>Description</key>
+			<string>Potion Description</string>
+			<key>Name</key>
+			<string>Potion Name</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

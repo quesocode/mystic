@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>sections</key>
+	<array>
+		<dict>
+			<key>standard</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Just for Fun</string>
+			<key>templates</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>For the Indie Artist</string>
+			<key>templates</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>For the Indie Activist</string>
+			<key>templates</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>For the Tree Hugger</string>
+			<key>templates</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>For the Community Volunteer</string>
+			<key>templates</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>For the Street Artist</string>
+			<key>templates</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>For the Start Up</string>
+			<key>templates</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Gig Poster</string>
+					<key>thumbnail</key>
+					<string>gigposter_thumb.jpg</string>
+					<key>image</key>
+					<string>gigposter.jpg</string>
+					<key>description</key>
+					<string>Make your own band gig poster</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>Last Updated</key>
+	<date>2013-12-26T01:33:30Z</date>
+</dict>
+</plist>

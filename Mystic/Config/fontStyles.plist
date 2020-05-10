@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>styles</key>
+	<array>
+		<dict>
+			<key>class</key>
+			<string>MysticFontStyleView1</string>
+			<key>thumbnail</key>
+			<string>fontstyle1.pdf</string>
+			<key>name</key>
+			<string>Basic</string>
+			<key>shapes</key>
+			<array/>
+			<key>fonts</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>thumbnail</key>
+			<string>fontstyle2.pdf</string>
+			<key>class</key>
+			<string>MysticFontStyleView2</string>
+			<key>name</key>
+			<string>Font Style 2</string>
+			<key>shapes</key>
+			<array>
+				<string>shape-heart.pdf</string>
+			</array>
+			<key>fonts</key>
+			<array>
+				<string>Baskerville-Italic</string>
+				<string>AmericanTypewriter-Bold</string>
+			</array>
+		</dict>
+		<dict>
+			<key>thumbnail</key>
+			<string>fontstyle3.pdf</string>
+			<key>class</key>
+			<string>MysticFontStyleView3</string>
+			<key>name</key>
+			<string>Font Style 3</string>
+			<key>shapes</key>
+			<array>
+				<string>shape-heart.pdf</string>
+			</array>
+			<key>fonts</key>
+			<array>
+				<string>AmericanTypewriter-Bold</string>
+			</array>
+		</dict>
+		<dict>
+			<key>thumbnail</key>
+			<string>fontstyle4.pdf</string>
+			<key>class</key>
+			<string>MysticFontStyleView4</string>
+			<key>name</key>
+			<string>Font Style 4</string>
+			<key>shapes</key>
+			<array>
+				<string>shape-heart.pdf</string>
+			</array>
+			<key>fonts</key>
+			<array>
+				<string>AvenirNext-HeavyItalic</string>
+			</array>
+		</dict>
+		<dict>
+			<key>thumbnail</key>
+			<string>fontstyle5.pdf</string>
+			<key>class</key>
+			<string>MysticFontStyleView5</string>
+			<key>name</key>
+			<string>Font Style 5</string>
+			<key>shapes</key>
+			<array>
+				<string>shape-heart.pdf</string>
+			</array>
+			<key>fonts</key>
+			<array>
+				<string>Baskerville-Bold</string>
+			</array>
+		</dict>
+		<dict>
+			<key>thumbnail</key>
+			<string>fontstyle6.pdf</string>
+			<key>class</key>
+			<string>MysticFontStyleView6</string>
+			<key>name</key>
+			<string>Font Style 6</string>
+			<key>shapes</key>
+			<array>
+				<string>shape-heart.pdf</string>
+			</array>
+			<key>fonts</key>
+			<array>
+				<string>Chalkduster</string>
+			</array>
+		</dict>
+		<dict>
+			<key>thumbnail</key>
+			<string>fontstyle7.pdf</string>
+			<key>class</key>
+			<string>MysticFontStyleView7</string>
+			<key>name</key>
+			<string>Font Style 7</string>
+			<key>shapes</key>
+			<array>
+				<string>shape-heart.pdf</string>
+			</array>
+			<key>fonts</key>
+			<array>
+				<string>Courier</string>
+			</array>
+		</dict>
+		<dict>
+			<key>thumbnail</key>
+			<string>fontstyle8.pdf</string>
+			<key>class</key>
+			<string>MysticFontStyleView8</string>
+			<key>name</key>
+			<string>Font Style 8</string>
+			<key>shapes</key>
+			<array>
+				<string>shape-heart.pdf</string>
+			</array>
+			<key>fonts</key>
+			<array>
+				<string>Futura-CondensedExtraBold</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
