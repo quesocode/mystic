@@ -11,11 +11,7 @@ __Photo app enlightenment__
 
 [Demo Video](https://youtu.be/klzcg83pJ8U)
 
-![Video](https://i9.ytimg.com/vi/R3Ao-6nAkFc/mq3.jpg?sqp=CKfn5PUF&rs=AOn4CLDNK1jc27NW4Wncp0DSj-4mal0k_g)
-
 [Brush Support Demo](https://youtu.be/R3Ao-6nAkFc)
-
-![Video](https://i.ytimg.com/vi/nVZP516oW-0/hqdefault.jpg)
 
 [New In App Purchases - Video](https://youtu.be/nVZP516oW-0)
 
